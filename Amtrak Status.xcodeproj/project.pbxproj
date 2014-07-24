@@ -1,0 +1,482 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3AC026A91981AE9700AEDAE9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC026A81981AE9700AEDAE9 /* Cocoa.framework */; };
+		3AC026B31981AE9700AEDAE9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3AC026B11981AE9700AEDAE9 /* InfoPlist.strings */; };
+		3AC026B51981AE9700AEDAE9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC026B41981AE9700AEDAE9 /* main.m */; };
+		3AC026B91981AE9700AEDAE9 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3AC026B71981AE9700AEDAE9 /* Credits.rtf */; };
+		3AC026BC1981AE9700AEDAE9 /* TLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC026BB1981AE9700AEDAE9 /* TLAppDelegate.m */; };
+		3AC026BF1981AE9700AEDAE9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AC026BD1981AE9700AEDAE9 /* MainMenu.xib */; };
+		3AC026C11981AE9700AEDAE9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AC026C01981AE9700AEDAE9 /* Images.xcassets */; };
+		3AC026C81981AE9700AEDAE9 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC026C71981AE9700AEDAE9 /* XCTest.framework */; };
+		3AC026C91981AE9700AEDAE9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC026A81981AE9700AEDAE9 /* Cocoa.framework */; };
+		3AC026D11981AE9700AEDAE9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3AC026CF1981AE9700AEDAE9 /* InfoPlist.strings */; };
+		3AC026D31981AE9700AEDAE9 /* Amtrak_StatusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC026D21981AE9700AEDAE9 /* Amtrak_StatusTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3AC026CA1981AE9700AEDAE9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3AC0269D1981AE9700AEDAE9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3AC026A41981AE9700AEDAE9;
+			remoteInfo = "Amtrak Status";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3AC026A51981AE9700AEDAE9 /* Amtrak Status.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Amtrak Status.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AC026A81981AE9700AEDAE9 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		3AC026AB1981AE9700AEDAE9 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		3AC026AC1981AE9700AEDAE9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		3AC026AD1981AE9700AEDAE9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3AC026B01981AE9700AEDAE9 /* Amtrak Status-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Amtrak Status-Info.plist"; sourceTree = "<group>"; };
+		3AC026B21981AE9700AEDAE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3AC026B41981AE9700AEDAE9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3AC026B61981AE9700AEDAE9 /* Amtrak Status-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Amtrak Status-Prefix.pch"; sourceTree = "<group>"; };
+		3AC026B81981AE9700AEDAE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		3AC026BA1981AE9700AEDAE9 /* TLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TLAppDelegate.h; sourceTree = "<group>"; };
+		3AC026BB1981AE9700AEDAE9 /* TLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TLAppDelegate.m; sourceTree = "<group>"; };
+		3AC026BE1981AE9700AEDAE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		3AC026C01981AE9700AEDAE9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3AC026C61981AE9700AEDAE9 /* Amtrak StatusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Amtrak StatusTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AC026C71981AE9700AEDAE9 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		3AC026CE1981AE9700AEDAE9 /* Amtrak StatusTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Amtrak StatusTests-Info.plist"; sourceTree = "<group>"; };
+		3AC026D01981AE9700AEDAE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3AC026D21981AE9700AEDAE9 /* Amtrak_StatusTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Amtrak_StatusTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3AC026A21981AE9700AEDAE9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AC026A91981AE9700AEDAE9 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AC026C31981AE9700AEDAE9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AC026C91981AE9700AEDAE9 /* Cocoa.framework in Frameworks */,
+				3AC026C81981AE9700AEDAE9 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3AC0269C1981AE9700AEDAE9 = {
+			isa = PBXGroup;
+			children = (
+				3AC026AE1981AE9700AEDAE9 /* Amtrak Status */,
+				3AC026CC1981AE9700AEDAE9 /* Amtrak StatusTests */,
+				3AC026A71981AE9700AEDAE9 /* Frameworks */,
+				3AC026A61981AE9700AEDAE9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3AC026A61981AE9700AEDAE9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3AC026A51981AE9700AEDAE9 /* Amtrak Status.app */,
+				3AC026C61981AE9700AEDAE9 /* Amtrak StatusTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3AC026A71981AE9700AEDAE9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3AC026A81981AE9700AEDAE9 /* Cocoa.framework */,
+				3AC026C71981AE9700AEDAE9 /* XCTest.framework */,
+				3AC026AA1981AE9700AEDAE9 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3AC026AA1981AE9700AEDAE9 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3AC026AB1981AE9700AEDAE9 /* AppKit.framework */,
+				3AC026AC1981AE9700AEDAE9 /* CoreData.framework */,
+				3AC026AD1981AE9700AEDAE9 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		3AC026AE1981AE9700AEDAE9 /* Amtrak Status */ = {
+			isa = PBXGroup;
+			children = (
+				3AC026BA1981AE9700AEDAE9 /* TLAppDelegate.h */,
+				3AC026BB1981AE9700AEDAE9 /* TLAppDelegate.m */,
+				3AC026BD1981AE9700AEDAE9 /* MainMenu.xib */,
+				3AC026C01981AE9700AEDAE9 /* Images.xcassets */,
+				3AC026AF1981AE9700AEDAE9 /* Supporting Files */,
+			);
+			path = "Amtrak Status";
+			sourceTree = "<group>";
+		};
+		3AC026AF1981AE9700AEDAE9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3AC026B01981AE9700AEDAE9 /* Amtrak Status-Info.plist */,
+				3AC026B11981AE9700AEDAE9 /* InfoPlist.strings */,
+				3AC026B41981AE9700AEDAE9 /* main.m */,
+				3AC026B61981AE9700AEDAE9 /* Amtrak Status-Prefix.pch */,
+				3AC026B71981AE9700AEDAE9 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3AC026CC1981AE9700AEDAE9 /* Amtrak StatusTests */ = {
+			isa = PBXGroup;
+			children = (
+				3AC026D21981AE9700AEDAE9 /* Amtrak_StatusTests.m */,
+				3AC026CD1981AE9700AEDAE9 /* Supporting Files */,
+			);
+			path = "Amtrak StatusTests";
+			sourceTree = "<group>";
+		};
+		3AC026CD1981AE9700AEDAE9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3AC026CE1981AE9700AEDAE9 /* Amtrak StatusTests-Info.plist */,
+				3AC026CF1981AE9700AEDAE9 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3AC026A41981AE9700AEDAE9 /* Amtrak Status */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3AC026D61981AE9700AEDAE9 /* Build configuration list for PBXNativeTarget "Amtrak Status" */;
+			buildPhases = (
+				3AC026A11981AE9700AEDAE9 /* Sources */,
+				3AC026A21981AE9700AEDAE9 /* Frameworks */,
+				3AC026A31981AE9700AEDAE9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Amtrak Status";
+			productName = "Amtrak Status";
+			productReference = 3AC026A51981AE9700AEDAE9 /* Amtrak Status.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3AC026C51981AE9700AEDAE9 /* Amtrak StatusTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3AC026D91981AE9700AEDAE9 /* Build configuration list for PBXNativeTarget "Amtrak StatusTests" */;
+			buildPhases = (
+				3AC026C21981AE9700AEDAE9 /* Sources */,
+				3AC026C31981AE9700AEDAE9 /* Frameworks */,
+				3AC026C41981AE9700AEDAE9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3AC026CB1981AE9700AEDAE9 /* PBXTargetDependency */,
+			);
+			name = "Amtrak StatusTests";
+			productName = "Amtrak StatusTests";
+			productReference = 3AC026C61981AE9700AEDAE9 /* Amtrak StatusTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3AC0269D1981AE9700AEDAE9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TL;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "___FULLUSERNAME___";
+				TargetAttributes = {
+					3AC026C51981AE9700AEDAE9 = {
+						TestTargetID = 3AC026A41981AE9700AEDAE9;
+					};
+				};
+			};
+			buildConfigurationList = 3AC026A01981AE9700AEDAE9 /* Build configuration list for PBXProject "Amtrak Status" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3AC0269C1981AE9700AEDAE9;
+			productRefGroup = 3AC026A61981AE9700AEDAE9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3AC026A41981AE9700AEDAE9 /* Amtrak Status */,
+				3AC026C51981AE9700AEDAE9 /* Amtrak StatusTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3AC026A31981AE9700AEDAE9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AC026B31981AE9700AEDAE9 /* InfoPlist.strings in Resources */,
+				3AC026C11981AE9700AEDAE9 /* Images.xcassets in Resources */,
+				3AC026B91981AE9700AEDAE9 /* Credits.rtf in Resources */,
+				3AC026BF1981AE9700AEDAE9 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AC026C41981AE9700AEDAE9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AC026D11981AE9700AEDAE9 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3AC026A11981AE9700AEDAE9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AC026BC1981AE9700AEDAE9 /* TLAppDelegate.m in Sources */,
+				3AC026B51981AE9700AEDAE9 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AC026C21981AE9700AEDAE9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3AC026D31981AE9700AEDAE9 /* Amtrak_StatusTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3AC026CB1981AE9700AEDAE9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3AC026A41981AE9700AEDAE9 /* Amtrak Status */;
+			targetProxy = 3AC026CA1981AE9700AEDAE9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3AC026B11981AE9700AEDAE9 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3AC026B21981AE9700AEDAE9 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		3AC026B71981AE9700AEDAE9 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3AC026B81981AE9700AEDAE9 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		3AC026BD1981AE9700AEDAE9 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3AC026BE1981AE9700AEDAE9 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		3AC026CF1981AE9700AEDAE9 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3AC026D01981AE9700AEDAE9 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3AC026D41981AE9700AEDAE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		3AC026D51981AE9700AEDAE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		3AC026D71981AE9700AEDAE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Amtrak Status/Amtrak Status-Prefix.pch";
+				INFOPLIST_FILE = "Amtrak Status/Amtrak Status-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		3AC026D81981AE9700AEDAE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Amtrak Status/Amtrak Status-Prefix.pch";
+				INFOPLIST_FILE = "Amtrak Status/Amtrak Status-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		3AC026DA1981AE9700AEDAE9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Amtrak Status.app/Contents/MacOS/Amtrak Status";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Amtrak Status/Amtrak Status-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Amtrak StatusTests/Amtrak StatusTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		3AC026DB1981AE9700AEDAE9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Amtrak Status.app/Contents/MacOS/Amtrak Status";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Amtrak Status/Amtrak Status-Prefix.pch";
+				INFOPLIST_FILE = "Amtrak StatusTests/Amtrak StatusTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3AC026A01981AE9700AEDAE9 /* Build configuration list for PBXProject "Amtrak Status" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AC026D41981AE9700AEDAE9 /* Debug */,
+				3AC026D51981AE9700AEDAE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3AC026D61981AE9700AEDAE9 /* Build configuration list for PBXNativeTarget "Amtrak Status" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AC026D71981AE9700AEDAE9 /* Debug */,
+				3AC026D81981AE9700AEDAE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		3AC026D91981AE9700AEDAE9 /* Build configuration list for PBXNativeTarget "Amtrak StatusTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3AC026DA1981AE9700AEDAE9 /* Debug */,
+				3AC026DB1981AE9700AEDAE9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3AC0269D1981AE9700AEDAE9 /* Project object */;
+}
