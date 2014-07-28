@@ -10,7 +10,7 @@
 
 @implementation TLAmtrakStatusGrabber
 
-@synthesize home, work;
+@synthesize dateFormatter, home, work;
 
 - (id)initWithHome:(NSString*)newHome andWork:(NSString*)newWork {
     self = [super init];
@@ -18,6 +18,8 @@
     if (self) {
         [self setHome:newHome];
         [self setWork:newWork];
+        [self setDateFormatter:[[NSDateFormatter alloc] init]];
+        [[self dateFormatter] setDateFormat:@"EEE, MMM d, yyyy"];
     }
 
     return self;
@@ -59,9 +61,11 @@
 - (NSData*)loadAmtrakPage {
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:[self baseParams]];
     
+    NSString *date = [[self dateFormatter] stringFromDate:[NSDate date]];
+    
     [params setObject:[self work] forKey:@"wdf_origin"];
     [params setObject:[self home] forKey:@"wdf_destination"];
-    [params setObject:@"Mon, Jul 28, 2014" forKey:@"/sessionWorkflow/productWorkflow[@product='Rail']/tripRequirements/journeyRequirements[1]/departDate.date"];
+    [params setObject:date forKey:@"/sessionWorkflow/productWorkflow[@product='Rail']/tripRequirements/journeyRequirements[1]/departDate.date"];
     
     NSData *requestBody = [self encodeDictionary:params];
     

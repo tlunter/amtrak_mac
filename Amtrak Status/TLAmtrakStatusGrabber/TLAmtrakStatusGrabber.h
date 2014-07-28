@@ -13,6 +13,7 @@
 - (id)initWithHome:(NSString*)newHome andWork:(NSString*)newWork;
 - (NSArray *)getAmtrakStatus;
 
+@property (nonatomic, strong) NSDateFormatter *dateFormatter;
 @property (nonatomic, strong) NSString *home;
 @property (nonatomic, strong) NSString *work;
 
