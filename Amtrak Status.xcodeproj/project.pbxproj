@@ -7,17 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A1B2A8019832EF900EB2C05 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1B2A7F19832EF900EB2C05 /* MainMenu.xib */; };
+		3A1B2AC519833D0600EB2C05 /* TLAmtrakStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1B2AC419833D0600EB2C05 /* TLAmtrakStatusView.m */; };
 		3AC026A91981AE9700AEDAE9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC026A81981AE9700AEDAE9 /* Cocoa.framework */; };
 		3AC026B31981AE9700AEDAE9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3AC026B11981AE9700AEDAE9 /* InfoPlist.strings */; };
 		3AC026B51981AE9700AEDAE9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC026B41981AE9700AEDAE9 /* main.m */; };
 		3AC026B91981AE9700AEDAE9 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 3AC026B71981AE9700AEDAE9 /* Credits.rtf */; };
 		3AC026BC1981AE9700AEDAE9 /* TLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC026BB1981AE9700AEDAE9 /* TLAppDelegate.m */; };
-		3AC026BF1981AE9700AEDAE9 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3AC026BD1981AE9700AEDAE9 /* MainMenu.xib */; };
 		3AC026C11981AE9700AEDAE9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3AC026C01981AE9700AEDAE9 /* Images.xcassets */; };
 		3AC026C81981AE9700AEDAE9 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC026C71981AE9700AEDAE9 /* XCTest.framework */; };
 		3AC026C91981AE9700AEDAE9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC026A81981AE9700AEDAE9 /* Cocoa.framework */; };
 		3AC026D11981AE9700AEDAE9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3AC026CF1981AE9700AEDAE9 /* InfoPlist.strings */; };
 		3AC026D31981AE9700AEDAE9 /* Amtrak_StatusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC026D21981AE9700AEDAE9 /* Amtrak_StatusTests.m */; };
+		3AC026DF1981C2D100AEDAE9 /* TLAmtrakStatusMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC026DE1981C2D100AEDAE9 /* TLAmtrakStatusMenu.m */; };
+		3AC026EA1981CE6100AEDAE9 /* TLAmtrakStatusGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC026E91981CE6100AEDAE9 /* TLAmtrakStatusGrabber.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +34,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3A1B2A7F19832EF900EB2C05 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
+		3A1B2AC319833D0600EB2C05 /* TLAmtrakStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TLAmtrakStatusView.h; path = TLAmtrakStatusView/TLAmtrakStatusView.h; sourceTree = "<group>"; };
+		3A1B2AC419833D0600EB2C05 /* TLAmtrakStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TLAmtrakStatusView.m; path = TLAmtrakStatusView/TLAmtrakStatusView.m; sourceTree = "<group>"; };
 		3AC026A51981AE9700AEDAE9 /* Amtrak Status.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Amtrak Status.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AC026A81981AE9700AEDAE9 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		3AC026AB1981AE9700AEDAE9 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -43,13 +49,16 @@
 		3AC026B81981AE9700AEDAE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		3AC026BA1981AE9700AEDAE9 /* TLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TLAppDelegate.h; sourceTree = "<group>"; };
 		3AC026BB1981AE9700AEDAE9 /* TLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TLAppDelegate.m; sourceTree = "<group>"; };
-		3AC026BE1981AE9700AEDAE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		3AC026C01981AE9700AEDAE9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3AC026C61981AE9700AEDAE9 /* Amtrak StatusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Amtrak StatusTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AC026C71981AE9700AEDAE9 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		3AC026CE1981AE9700AEDAE9 /* Amtrak StatusTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Amtrak StatusTests-Info.plist"; sourceTree = "<group>"; };
 		3AC026D01981AE9700AEDAE9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3AC026D21981AE9700AEDAE9 /* Amtrak_StatusTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Amtrak_StatusTests.m; sourceTree = "<group>"; };
+		3AC026DD1981C2D100AEDAE9 /* TLAmtrakStatusMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TLAmtrakStatusMenu.h; path = TLAmtrakStatusMenu/TLAmtrakStatusMenu.h; sourceTree = "<group>"; };
+		3AC026DE1981C2D100AEDAE9 /* TLAmtrakStatusMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TLAmtrakStatusMenu.m; path = TLAmtrakStatusMenu/TLAmtrakStatusMenu.m; sourceTree = "<group>"; };
+		3AC026E81981CE6100AEDAE9 /* TLAmtrakStatusGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TLAmtrakStatusGrabber.h; path = TLAmtrakStatusGrabber/TLAmtrakStatusGrabber.h; sourceTree = "<group>"; };
+		3AC026E91981CE6100AEDAE9 /* TLAmtrakStatusGrabber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TLAmtrakStatusGrabber.m; path = TLAmtrakStatusGrabber/TLAmtrakStatusGrabber.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +82,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A1B2AC619833D3300EB2C05 /* TLAmtrakStatusView */ = {
+			isa = PBXGroup;
+			children = (
+				3A1B2AC319833D0600EB2C05 /* TLAmtrakStatusView.h */,
+				3A1B2AC419833D0600EB2C05 /* TLAmtrakStatusView.m */,
+			);
+			name = TLAmtrakStatusView;
+			sourceTree = "<group>";
+		};
 		3AC0269C1981AE9700AEDAE9 = {
 			isa = PBXGroup;
 			children = (
@@ -117,9 +135,12 @@
 			children = (
 				3AC026BA1981AE9700AEDAE9 /* TLAppDelegate.h */,
 				3AC026BB1981AE9700AEDAE9 /* TLAppDelegate.m */,
-				3AC026BD1981AE9700AEDAE9 /* MainMenu.xib */,
+				3A1B2A7F19832EF900EB2C05 /* MainMenu.xib */,
 				3AC026C01981AE9700AEDAE9 /* Images.xcassets */,
 				3AC026AF1981AE9700AEDAE9 /* Supporting Files */,
+				3AC026E11981C2E100AEDAE9 /* TLAmtrakStatusMenu */,
+				3AC026EB1981CE6700AEDAE9 /* TLAmtrakStatusGrabber */,
+				3A1B2AC619833D3300EB2C05 /* TLAmtrakStatusView */,
 			);
 			path = "Amtrak Status";
 			sourceTree = "<group>";
@@ -152,6 +173,24 @@
 				3AC026CF1981AE9700AEDAE9 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3AC026E11981C2E100AEDAE9 /* TLAmtrakStatusMenu */ = {
+			isa = PBXGroup;
+			children = (
+				3AC026DD1981C2D100AEDAE9 /* TLAmtrakStatusMenu.h */,
+				3AC026DE1981C2D100AEDAE9 /* TLAmtrakStatusMenu.m */,
+			);
+			name = TLAmtrakStatusMenu;
+			sourceTree = "<group>";
+		};
+		3AC026EB1981CE6700AEDAE9 /* TLAmtrakStatusGrabber */ = {
+			isa = PBXGroup;
+			children = (
+				3AC026E81981CE6100AEDAE9 /* TLAmtrakStatusGrabber.h */,
+				3AC026E91981CE6100AEDAE9 /* TLAmtrakStatusGrabber.m */,
+			);
+			name = TLAmtrakStatusGrabber;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,9 +271,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AC026B31981AE9700AEDAE9 /* InfoPlist.strings in Resources */,
+				3A1B2A8019832EF900EB2C05 /* MainMenu.xib in Resources */,
 				3AC026C11981AE9700AEDAE9 /* Images.xcassets in Resources */,
 				3AC026B91981AE9700AEDAE9 /* Credits.rtf in Resources */,
-				3AC026BF1981AE9700AEDAE9 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,8 +292,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A1B2AC519833D0600EB2C05 /* TLAmtrakStatusView.m in Sources */,
 				3AC026BC1981AE9700AEDAE9 /* TLAppDelegate.m in Sources */,
+				3AC026DF1981C2D100AEDAE9 /* TLAmtrakStatusMenu.m in Sources */,
 				3AC026B51981AE9700AEDAE9 /* main.m in Sources */,
+				3AC026EA1981CE6100AEDAE9 /* TLAmtrakStatusGrabber.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,14 +333,6 @@
 				3AC026B81981AE9700AEDAE9 /* en */,
 			);
 			name = Credits.rtf;
-			sourceTree = "<group>";
-		};
-		3AC026BD1981AE9700AEDAE9 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3AC026BE1981AE9700AEDAE9 /* Base */,
-			);
-			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 		3AC026CF1981AE9700AEDAE9 /* InfoPlist.strings */ = {
@@ -467,6 +501,7 @@
 				3AC026D81981AE9700AEDAE9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3AC026D91981AE9700AEDAE9 /* Build configuration list for PBXNativeTarget "Amtrak StatusTests" */ = {
 			isa = XCConfigurationList;
@@ -475,6 +510,7 @@
 				3AC026DB1981AE9700AEDAE9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
