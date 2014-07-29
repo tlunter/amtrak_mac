@@ -26,6 +26,7 @@
     statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     [statusItem setMenu:[amtrakStatusMenu menu]];
     [statusItem setImage:[NSImage imageNamed:@"Amtrak"]];
+    [statusItem setAlternateImage:[NSImage imageNamed:@"AmtrakHighlighted"]];
     [statusItem setHighlightMode:YES];
     
     amtrakStatusGrabber = [[TLAmtrakStatusGrabber alloc] initWithHome:@"bby" andWork:@"pvd"];
