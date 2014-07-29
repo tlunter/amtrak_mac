@@ -20,14 +20,15 @@
         [self setScrollView:[[NSScrollView alloc] initWithFrame:[self frame]]];
         
         [scrollView setBorderType:NSNoBorder];
+        [[scrollView contentView] setCopiesOnScroll:NO];
         
-        [self addSubview:[self scrollView]];
+        //[self addSubview:[self scrollView]];
     }
     return self;
 }
 
 - (void)setTrainData:(NSArray *)trainData {
-    [self setFrame:NSMakeRect(0, 0, 235, 30 * [trainData count])];
+    [self setFrame:NSMakeRect(0, 0, 240, 30 * [trainData count])];
     NSView *view = [[NSView alloc] initWithFrame:[self frame]];
     
     NSInteger max = [trainData count];
@@ -41,8 +42,7 @@
         [view addSubview:tLIV];
     }
     
-    [scrollView setFrame:[self frame]];
-    [scrollView setDocumentView:view];
+    [self addSubview:view];
 }
 
 - (void)drawRect:(NSRect)dirtyRect

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>4794E8F1-AF50-4BFF-958F-CD3AB74D78BD</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Amtrak Status</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C15FC9E9-E201-4049-AD9D-52230D84019A</key>
+		<string>ssh://github.com/tlunter/AmtrakStatus.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Amtrak Status.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C15FC9E9-E201-4049-AD9D-52230D84019A</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/tlunter/AmtrakStatus.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C15FC9E9-E201-4049-AD9D-52230D84019A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C15FC9E9-E201-4049-AD9D-52230D84019A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Amtrak Status</string>
+		</dict>
+	</array>
+</dict>
+</plist>

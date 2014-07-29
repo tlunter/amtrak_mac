@@ -14,7 +14,7 @@
 
 - (id)initWithIndex:(NSInteger)i andText:(NSString*)text
 {
-    NSRect frame = NSMakeRect(145, 0, 90, 25);
+    NSRect frame = NSMakeRect(145, 0, 95, 25);
     self = [super initWithFrame:frame];
     if (self) {
         [self setString:text];

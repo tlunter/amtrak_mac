@@ -11,7 +11,9 @@
 @interface TLAmtrakStatusMenu : NSObject
 
 - (void)setView:(NSView *)view;
+- (void)quitApp:(id)sender;
 
-@property (strong) NSMenu* menu;
+@property (strong) NSMenu *menu;
+@property (strong) NSMenuItem *quitButton;
 
 @end

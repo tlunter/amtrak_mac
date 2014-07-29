@@ -17,5 +17,6 @@
 @property (strong, nonatomic) TLTrainListItemTrainView *train;
 @property (strong, nonatomic) TLTrainListItemEstimatedView *estimated;
 @property (strong, nonatomic) TLTrainListItemScheduledView *scheduled;
+@property (strong, nonatomic) NSColor *backgroundColor;
 
 @end

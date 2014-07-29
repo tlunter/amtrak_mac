@@ -16,10 +16,8 @@
 {
     NSRect frame = NSMakeRect(5, 0, 50, 25);
     
-    NSLog(@"Init 1: %@", NSStringFromRect(frame));
     self = [super initWithFrame:frame];
     if (self) {
-        NSLog(@"Init 2: %@", NSStringFromRect([self frame]));
         [self setString:text];
     }
     return self;
@@ -30,7 +28,6 @@
     [string drawInRect:[self frame] withAttributes:[[NSDictionary alloc] initWithObjectsAndKeys:
                                                            [NSFont systemFontOfSize:16.0], NSFontAttributeName,
                                                     nil]];
-    NSLog(@"Draw: %@", NSStringFromRect([self frame]));
 }
 
 @end

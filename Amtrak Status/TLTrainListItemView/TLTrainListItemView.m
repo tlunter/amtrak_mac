@@ -13,11 +13,11 @@
 
 @implementation TLTrainListItemView
 
-@synthesize train, scheduled, estimated;
+@synthesize train, scheduled, estimated, backgroundColor;
 
 - (id)initWithIndex:(NSInteger)i andTrain:(NSString*)t andScheduled:(NSString*)s andEstimated:(NSString*)e
 {
-    NSRect frame = NSMakeRect(0, i * 30, 235, 30);
+    NSRect frame = NSMakeRect(0, i * 30, 240, 30);
     self = [super initWithFrame:frame];
     if (self) {
         [self setTrain:[[TLTrainListItemTrainView alloc] initWithIndex:i andText:t]];
@@ -26,6 +26,8 @@
         [self addSubview:train];
         [self addSubview:scheduled];
         [self addSubview:estimated];
+        
+        [self setBackgroundColor:[[NSColor controlAlternatingRowBackgroundColors] objectAtIndex:i % 2]];
     }
     return self;
 }
@@ -33,6 +35,9 @@
 - (void)drawRect:(NSRect)dirtyRect
 {
     [super drawRect:dirtyRect];
+    
+    [backgroundColor setFill];
+    NSRectFill(dirtyRect);
 }
 
 @end
