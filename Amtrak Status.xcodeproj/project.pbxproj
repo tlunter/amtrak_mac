@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		3A1B2A8019832EF900EB2C05 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1B2A7F19832EF900EB2C05 /* MainMenu.xib */; };
 		3A1B2AC519833D0600EB2C05 /* TLAmtrakStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1B2AC419833D0600EB2C05 /* TLAmtrakStatusView.m */; };
+		3A64C395198725A100053DC7 /* TLTrainListItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A64C394198725A100053DC7 /* TLTrainListItemView.m */; };
+		3A64C399198725C000053DC7 /* TLTrainListItemTrainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A64C398198725C000053DC7 /* TLTrainListItemTrainView.m */; };
+		3A64C39D198725E500053DC7 /* TLTrainListItemScheduledView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A64C39C198725E500053DC7 /* TLTrainListItemScheduledView.m */; };
+		3A64C3A1198725FF00053DC7 /* TLTrainListItemEstimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A64C3A0198725FF00053DC7 /* TLTrainListItemEstimatedView.m */; };
 		3AC026A91981AE9700AEDAE9 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AC026A81981AE9700AEDAE9 /* Cocoa.framework */; };
 		3AC026B31981AE9700AEDAE9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3AC026B11981AE9700AEDAE9 /* InfoPlist.strings */; };
 		3AC026B51981AE9700AEDAE9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC026B41981AE9700AEDAE9 /* main.m */; };
@@ -37,6 +41,14 @@
 		3A1B2A7F19832EF900EB2C05 /* MainMenu.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		3A1B2AC319833D0600EB2C05 /* TLAmtrakStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TLAmtrakStatusView.h; path = TLAmtrakStatusView/TLAmtrakStatusView.h; sourceTree = "<group>"; };
 		3A1B2AC419833D0600EB2C05 /* TLAmtrakStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TLAmtrakStatusView.m; path = TLAmtrakStatusView/TLAmtrakStatusView.m; sourceTree = "<group>"; };
+		3A64C393198725A100053DC7 /* TLTrainListItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TLTrainListItemView.h; path = TLTrainListItemView/TLTrainListItemView.h; sourceTree = "<group>"; };
+		3A64C394198725A100053DC7 /* TLTrainListItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TLTrainListItemView.m; path = TLTrainListItemView/TLTrainListItemView.m; sourceTree = "<group>"; };
+		3A64C397198725C000053DC7 /* TLTrainListItemTrainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TLTrainListItemTrainView.h; path = TLTrainListItemTrainView/TLTrainListItemTrainView.h; sourceTree = "<group>"; };
+		3A64C398198725C000053DC7 /* TLTrainListItemTrainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TLTrainListItemTrainView.m; path = TLTrainListItemTrainView/TLTrainListItemTrainView.m; sourceTree = "<group>"; };
+		3A64C39B198725E500053DC7 /* TLTrainListItemScheduledView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TLTrainListItemScheduledView.h; path = TLTrainListItemScheduledView/TLTrainListItemScheduledView.h; sourceTree = "<group>"; };
+		3A64C39C198725E500053DC7 /* TLTrainListItemScheduledView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TLTrainListItemScheduledView.m; path = TLTrainListItemScheduledView/TLTrainListItemScheduledView.m; sourceTree = "<group>"; };
+		3A64C39F198725FF00053DC7 /* TLTrainListItemEstimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TLTrainListItemEstimatedView.h; path = TLTrainListItemEstimatedView/TLTrainListItemEstimatedView.h; sourceTree = "<group>"; };
+		3A64C3A0198725FF00053DC7 /* TLTrainListItemEstimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TLTrainListItemEstimatedView.m; path = TLTrainListItemEstimatedView/TLTrainListItemEstimatedView.m; sourceTree = "<group>"; };
 		3AC026A51981AE9700AEDAE9 /* Amtrak Status.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Amtrak Status.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AC026A81981AE9700AEDAE9 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		3AC026AB1981AE9700AEDAE9 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -91,6 +103,42 @@
 			name = TLAmtrakStatusView;
 			sourceTree = "<group>";
 		};
+		3A64C396198725A700053DC7 /* TLTrainListItemView */ = {
+			isa = PBXGroup;
+			children = (
+				3A64C393198725A100053DC7 /* TLTrainListItemView.h */,
+				3A64C394198725A100053DC7 /* TLTrainListItemView.m */,
+			);
+			name = TLTrainListItemView;
+			sourceTree = "<group>";
+		};
+		3A64C39A198725C400053DC7 /* TLTrainListItemTrainView */ = {
+			isa = PBXGroup;
+			children = (
+				3A64C397198725C000053DC7 /* TLTrainListItemTrainView.h */,
+				3A64C398198725C000053DC7 /* TLTrainListItemTrainView.m */,
+			);
+			name = TLTrainListItemTrainView;
+			sourceTree = "<group>";
+		};
+		3A64C39E198725E900053DC7 /* TLTrainListItemScheduledView */ = {
+			isa = PBXGroup;
+			children = (
+				3A64C39B198725E500053DC7 /* TLTrainListItemScheduledView.h */,
+				3A64C39C198725E500053DC7 /* TLTrainListItemScheduledView.m */,
+			);
+			name = TLTrainListItemScheduledView;
+			sourceTree = "<group>";
+		};
+		3A64C3A21987260200053DC7 /* TLTrainListItemEstimatedView */ = {
+			isa = PBXGroup;
+			children = (
+				3A64C39F198725FF00053DC7 /* TLTrainListItemEstimatedView.h */,
+				3A64C3A0198725FF00053DC7 /* TLTrainListItemEstimatedView.m */,
+			);
+			name = TLTrainListItemEstimatedView;
+			sourceTree = "<group>";
+		};
 		3AC0269C1981AE9700AEDAE9 = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +189,10 @@
 				3AC026E11981C2E100AEDAE9 /* TLAmtrakStatusMenu */,
 				3AC026EB1981CE6700AEDAE9 /* TLAmtrakStatusGrabber */,
 				3A1B2AC619833D3300EB2C05 /* TLAmtrakStatusView */,
+				3A64C396198725A700053DC7 /* TLTrainListItemView */,
+				3A64C39A198725C400053DC7 /* TLTrainListItemTrainView */,
+				3A64C39E198725E900053DC7 /* TLTrainListItemScheduledView */,
+				3A64C3A21987260200053DC7 /* TLTrainListItemEstimatedView */,
 			);
 			path = "Amtrak Status";
 			sourceTree = "<group>";
@@ -294,8 +346,12 @@
 			files = (
 				3A1B2AC519833D0600EB2C05 /* TLAmtrakStatusView.m in Sources */,
 				3AC026BC1981AE9700AEDAE9 /* TLAppDelegate.m in Sources */,
+				3A64C395198725A100053DC7 /* TLTrainListItemView.m in Sources */,
 				3AC026DF1981C2D100AEDAE9 /* TLAmtrakStatusMenu.m in Sources */,
 				3AC026B51981AE9700AEDAE9 /* main.m in Sources */,
+				3A64C399198725C000053DC7 /* TLTrainListItemTrainView.m in Sources */,
+				3A64C39D198725E500053DC7 /* TLTrainListItemScheduledView.m in Sources */,
+				3A64C3A1198725FF00053DC7 /* TLTrainListItemEstimatedView.m in Sources */,
 				3AC026EA1981CE6100AEDAE9 /* TLAmtrakStatusGrabber.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

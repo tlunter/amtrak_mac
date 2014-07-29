@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface TLAppDelegate : NSObject <NSApplicationDelegate, NSTableViewDataSource>
+@interface TLAppDelegate : NSObject
 
 - (void)updateView:(NSArray*)trains;
 

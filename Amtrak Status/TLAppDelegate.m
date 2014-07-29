@@ -17,8 +17,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    amtrakStatusView = [[TLAmtrakStatusView alloc] initWithFrame:NSMakeRect(0, 0, 200, 200)];
-    [amtrakStatusView setDataSource:self];
+    amtrakStatusView = [[TLAmtrakStatusView alloc] initWithFrame:NSMakeRect(0, 0, 195, 20)];
     
     amtrakStatusMenu = [[TLAmtrakStatusMenu alloc] init];
     [amtrakStatusMenu setView:amtrakStatusView];
@@ -35,7 +34,14 @@
 }
 
 - (void)updateView:(NSArray*)trains {
-    [self setTrainData:trains];
+    
+    NSMutableArray *array = [NSMutableArray arrayWithArray:trains];
+    NSDictionary *header = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"Train", @"Scheduled", @"Estimated", nil]
+                                                       forKeys:[NSArray arrayWithObjects:@"train", @"scheduled", @"estimated", nil]];
+    
+    [array insertObject:header atIndex:0];
+    
+    [amtrakStatusView setTrainData:array];
 }
 
 - (void)runGrabber {
@@ -44,14 +50,6 @@
         [self performSelectorOnMainThread:@selector(updateView:) withObject:trains waitUntilDone:NO];
         [NSThread sleepForTimeInterval:10.0f];
     }
-}
-
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-    return [[self trainData] count];
-}
-
-- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-    return [[[self trainData] objectAtIndex:row] objectForKey:[tableColumn identifier]];
 }
 
 @end

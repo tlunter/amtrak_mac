@@ -6,57 +6,48 @@
 //  Copyright (c) 2014 Todd Lunter. All rights reserved.
 //
 
+#import "TLTrainListItemView.h"
 #import "TLAmtrakStatusView.h"
 
 @implementation TLAmtrakStatusView
 
-@synthesize tableView, scrollView;
+@synthesize scrollView;
 
 - (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self setScrollView:[[NSScrollView alloc] initWithFrame:[self bounds]]];
-        [self setTableView:[[NSTableView alloc] initWithFrame:[self bounds]]];
+        [self setScrollView:[[NSScrollView alloc] initWithFrame:[self frame]]];
         
-        [[self scrollView] setBorderType:NSNoBorder];
+        [scrollView setBorderType:NSNoBorder];
         
-        [self buildColumns];
-        
-        [[self scrollView] setDocumentView:tableView];
         [self addSubview:[self scrollView]];
     }
     return self;
-}   
+}
 
-- (void)buildColumns {
-    [[self tableView] setAllowsColumnResizing:NO];
-    [[self tableView] setAllowsMultipleSelection:NO];
-    [[self tableView] setAllowsColumnSelection:NO];
+- (void)setTrainData:(NSArray *)trainData {
+    [self setFrame:NSMakeRect(0, 0, 235, 30 * [trainData count])];
+    NSView *view = [[NSView alloc] initWithFrame:[self frame]];
     
-    NSTableColumn *trainHeader = [[NSTableColumn alloc] initWithIdentifier:@"train"];
-    [[trainHeader headerCell] setStringValue:@"Train"];
-    [trainHeader setWidth:42];
-    [[self tableView] addTableColumn:trainHeader];
+    NSInteger max = [trainData count];
     
-    NSTableColumn *scheduledHeader = [[NSTableColumn alloc] initWithIdentifier:@"scheduled"];
-    [[scheduledHeader headerCell] setStringValue:@"Scheduled"];
-    [scheduledHeader setWidth:75];
-    [[self tableView] addTableColumn:scheduledHeader];
+    for (int i = 0; i < max; i++) {
+        NSDictionary *train = [trainData objectAtIndex:i];
+        TLTrainListItemView *tLIV = [[TLTrainListItemView alloc] initWithIndex:(max - i - 1)
+                                                                      andTrain:[train objectForKey:@"train"]
+                                                                  andScheduled:[train objectForKey:@"scheduled"]
+                                                                  andEstimated:[train objectForKey:@"estimated"]];
+        [view addSubview:tLIV];
+    }
     
-    NSTableColumn *estimatedHeader = [[NSTableColumn alloc] initWithIdentifier:@"estimated"];
-    [[estimatedHeader headerCell] setStringValue:@"Estimated"];
-    [estimatedHeader setWidth:75];
-    [[self tableView] addTableColumn:estimatedHeader];
+    [scrollView setFrame:[self frame]];
+    [scrollView setDocumentView:view];
 }
 
 - (void)drawRect:(NSRect)dirtyRect
 {
     [super drawRect:dirtyRect];
-}
-
-- (void)setDataSource:(id<NSTableViewDataSource>)dataSource {
-    [tableView setDataSource:dataSource];
 }
 
 @end

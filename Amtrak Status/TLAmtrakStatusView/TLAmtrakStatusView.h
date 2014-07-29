@@ -10,9 +10,8 @@
 
 @interface TLAmtrakStatusView : NSScrollView
 
-- (void)setDataSource:(id<NSTableViewDataSource>)dataSource;
+- (void)setTrainData:(NSArray *)trainData;
 
 @property (nonatomic, strong) NSScrollView *scrollView;
-@property (nonatomic, strong) NSTableView *tableView;
 
 @end

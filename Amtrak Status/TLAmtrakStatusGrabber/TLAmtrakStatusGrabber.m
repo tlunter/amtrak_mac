@@ -71,6 +71,7 @@
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://tickets.amtrak.com/itd/amtrak"]];
     [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
     [request setHTTPBody:requestBody];
     [request setHTTPMethod:@"POST"];
     
