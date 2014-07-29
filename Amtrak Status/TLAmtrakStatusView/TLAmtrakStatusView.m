@@ -11,22 +11,6 @@
 
 @implementation TLAmtrakStatusView
 
-@synthesize scrollView;
-
-- (id)initWithFrame:(NSRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        [self setScrollView:[[NSScrollView alloc] initWithFrame:[self frame]]];
-        
-        [scrollView setBorderType:NSNoBorder];
-        [[scrollView contentView] setCopiesOnScroll:NO];
-        
-        //[self addSubview:[self scrollView]];
-    }
-    return self;
-}
-
 - (void)setTrainData:(NSArray *)trainData {
     [self setFrame:NSMakeRect(0, 0, 240, 30 * [trainData count])];
     NSView *view = [[NSView alloc] initWithFrame:[self frame]];

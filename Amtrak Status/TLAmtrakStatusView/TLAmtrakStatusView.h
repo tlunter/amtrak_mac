@@ -12,6 +12,4 @@
 
 - (void)setTrainData:(NSArray *)trainData;
 
-@property (nonatomic, strong) NSScrollView *scrollView;
-
 @end
