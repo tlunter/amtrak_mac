@@ -6,11 +6,12 @@
 //  Copyright (c) 2014 Todd Lunter. All rights reserved.
 //
 
+#import "TLPreferencesWindowController.h"
 #import "TLAmtrakStatusMenu.h"
 
 @implementation TLAmtrakStatusMenu
 
-@synthesize menu, quitButton;
+@synthesize menu, preferencesButton, preferencesWindowController, quitButton;
 
 - (id)init {
     self = [super init];
@@ -20,8 +21,14 @@
         
         [self setQuitButton:[[NSMenuItem alloc] initWithTitle:@"Quit" action:@selector(quitApp:) keyEquivalent:@""]];
         [quitButton setTarget:self];
+        [self setPreferencesButton:[[NSMenuItem alloc] initWithTitle:@"Preferences" action:@selector(openPreferences:) keyEquivalent:@""]];
+        [preferencesButton setTarget:self];
     }
     return self;
+}
+
+- (void)openPreferences:(id)sender {
+    [preferencesWindowController showWindow:self];
 }
 
 - (void)quitApp:(id)sender {
@@ -34,6 +41,7 @@
     [menu removeAllItems];
     [menu addItem:menuItem];
     [menu addItem:[NSMenuItem separatorItem]];
+    [menu addItem:preferencesButton];
     [menu addItem:quitButton];
 }
 

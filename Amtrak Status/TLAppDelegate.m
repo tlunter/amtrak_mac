@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 ___FULLUSERNAME___. All rights reserved.
 //
 
+#import "TLPreferencesWindowController.h"
 #import "TLAmtrakStatusMenu.h"
 #import "TLAmtrakStatusGrabber.h"
 #import "TLAmtrakStatusView.h"
@@ -13,14 +14,17 @@
 
 @implementation TLAppDelegate
 
-@synthesize statusItem, trainData, amtrakStatusMenu, amtrakStatusView, amtrakStatusGrabber;
+@synthesize statusItem, trainData, amtrakStatusMenu, amtrakStatusView, amtrakStatusGrabber, preferencesWindowController;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     amtrakStatusView = [[TLAmtrakStatusView alloc] initWithFrame:NSMakeRect(0, 0, 195, 20)];
     
+    preferencesWindowController = [[TLPreferencesWindowController alloc] init];
+    
     amtrakStatusMenu = [[TLAmtrakStatusMenu alloc] init];
     [amtrakStatusMenu setView:amtrakStatusView];
+    [amtrakStatusMenu setPreferencesWindowController:preferencesWindowController];
     
     statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength];
     [statusItem setMenu:[amtrakStatusMenu menu]];
@@ -28,27 +32,28 @@
     [statusItem setAlternateImage:[NSImage imageNamed:@"AmtrakHighlighted"]];
     [statusItem setHighlightMode:YES];
     
-    amtrakStatusGrabber = [[TLAmtrakStatusGrabber alloc] initWithHome:@"bby" andWork:@"pvd"];
+    amtrakStatusGrabber = [[TLAmtrakStatusGrabber alloc] initWithHome:@"bby" andWork:@"pvd" andTarget:self];
 
     [NSThread detachNewThreadSelector:@selector(runGrabber) toTarget:self withObject:nil];
 }
 
 - (void)updateView:(NSArray*)trains {
-    
     NSMutableArray *array = [NSMutableArray arrayWithArray:trains];
-    NSDictionary *header = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"Train", @"Scheduled", @"Estimated", nil]
-                                                       forKeys:[NSArray arrayWithObjects:@"train", @"scheduled", @"estimated", nil]];
+    NSDictionary *header = @{@"train": @"Train", @"scheduled": @"Scheduled", @"estimated": @"Estimated"};
     
     [array insertObject:header atIndex:0];
     
-    [amtrakStatusView setTrainData:array];
+    @autoreleasepool {
+        [amtrakStatusView setTrainData:array];
+    }
 }
 
 - (void)runGrabber {
     while (true) {
-        NSArray *trains = [amtrakStatusGrabber getAmtrakStatus];
-        [self performSelectorOnMainThread:@selector(updateView:) withObject:trains waitUntilDone:NO];
-        [NSThread sleepForTimeInterval:10.0f];
+        @autoreleasepool {
+            [amtrakStatusGrabber getAmtrakStatus];
+            [NSThread sleepForTimeInterval:30.0f];
+        }
     }
 }
 
