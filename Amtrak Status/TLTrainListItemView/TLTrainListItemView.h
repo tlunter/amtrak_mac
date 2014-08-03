@@ -14,9 +14,9 @@
 
 - (id)initWithIndex:(NSInteger)i andTrain:(NSString*)t andScheduled:(NSString*)s andEstimated:(NSString*)e;
 
-@property (strong, nonatomic) TLTrainListItemTrainView *train;
-@property (strong, nonatomic) TLTrainListItemEstimatedView *estimated;
-@property (strong, nonatomic) TLTrainListItemScheduledView *scheduled;
-@property (strong, nonatomic) NSColor *backgroundColor;
+@property TLTrainListItemTrainView *train;
+@property TLTrainListItemEstimatedView *estimated;
+@property TLTrainListItemScheduledView *scheduled;
+@property NSColor *backgroundColor;
 
 @end

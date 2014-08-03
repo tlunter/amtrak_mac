@@ -11,9 +11,12 @@
 @interface TLAmtrakStatusMenu : NSObject
 
 - (void)setView:(NSView *)view;
+- (void)openPreferences:(id)sender;
 - (void)quitApp:(id)sender;
 
-@property (strong) NSMenu *menu;
-@property (strong) NSMenuItem *quitButton;
+@property NSMenu *menu;
+@property NSMenuItem *preferencesButton;
+@property NSMenuItem *quitButton;
+@property TLPreferencesWindowController *preferencesWindowController;
 
 @end

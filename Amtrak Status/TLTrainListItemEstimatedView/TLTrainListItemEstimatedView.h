@@ -12,6 +12,6 @@
 
 - (id)initWithIndex:(NSInteger)i andText:(NSString*)text;
 
-@property (nonatomic, strong) NSString *string;
+@property NSString *string;
 
 @end

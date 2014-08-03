@@ -8,13 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol TLAmtrakStatusDelegate
+
+- (void)updateView:(NSArray*)trains;
+
+@end
+
 @interface TLAmtrakStatusGrabber : NSObject
 
-- (id)initWithHome:(NSString*)newHome andWork:(NSString*)newWork;
-- (NSArray *)getAmtrakStatus;
+- (id)initWithHome:(NSString*)newHome andWork:(NSString*)newWork andTarget:(NSObject<TLAmtrakStatusDelegate>*)target;
+- (void)getAmtrakStatus;
 
-@property (nonatomic, strong) NSDateFormatter *dateFormatter;
-@property (nonatomic, strong) NSString *home;
-@property (nonatomic, strong) NSString *work;
+@property NSDateFormatter *dateFormatter;
+@property NSString *home;
+@property NSString *work;
+@property NSObject<TLAmtrakStatusDelegate>* target;
 
 @end

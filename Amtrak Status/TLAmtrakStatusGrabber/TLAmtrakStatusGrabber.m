@@ -6,20 +6,22 @@
 //  Copyright (c) 2014 Todd Lunter. All rights reserved.
 //
 
+#import "UNIRest.h"
 #import "TLAmtrakStatusGrabber.h"
 
 @implementation TLAmtrakStatusGrabber
 
-@synthesize dateFormatter, home, work;
+@synthesize dateFormatter, home, work, target;
 
-- (id)initWithHome:(NSString*)newHome andWork:(NSString*)newWork {
+- (id)initWithHome:(NSString*)h andWork:(NSString*)w andTarget:(NSObject<TLAmtrakStatusDelegate>*)t {
     self = [super init];
     
     if (self) {
-        [self setHome:newHome];
-        [self setWork:newWork];
+        [self setHome:h];
+        [self setWork:w];
         [self setDateFormatter:[[NSDateFormatter alloc] init]];
-        [[self dateFormatter] setDateFormat:@"EEE, MMM d, yyyy"];
+        [dateFormatter setDateFormat:@"EEE, MMM d, yyyy"];
+        [self setTarget:t];
     }
 
     return self;
@@ -42,23 +44,23 @@
 }
 
 - (NSDictionary *)baseParams {
-    static NSMutableDictionary *params = nil;
+    static NSDictionary *params = nil;
     
     if (params == nil) {
-        params = [[NSMutableDictionary alloc] init];
-        
-        [params setObject:@"/sessionWorkflow/productWorkflow[@product='Rail']/travelSelection/journeySelection[1]/departLocation/search" forKey:@"xwdf_origin"];
-        [params setObject:@"/sessionWorkflow/productWorkflow[@product='Rail']/travelSelection/journeySelection[1]/arriveLocation/search" forKey:@"xwdf_destination"];
-        [params setObject:@"amtrak.presentation.handler.page.rail.AmtrakRailGetTrainStatusPageHandler" forKey:@"requestor"];
-        [params setObject:@"/sessionWorkflow/productWorkflow[@product='Rail']/tripRequirements/journeyRequirements[1]/segmentRequirements[1]/serviceCode" forKey:@"xwdf_trainNumber"];
-        [params setObject:@"optional" forKey:@"wdf_trainNumber"];
-        [params setObject:@"" forKey:@"_handler=amtrak.presentation.handler.request.rail.AmtrakRailTrainStatusSearchRequestHandler/_xpath=/sessionWorkflow/productWorkflow[@product='Rail']"];
+        params = @{
+            @"xwdf_origin": @"/sessionWorkflow/productWorkflow[@product='Rail']/travelSelection/journeySelection[1]/departLocation/search",
+            @"xwdf_destination": @"/sessionWorkflow/productWorkflow[@product='Rail']/travelSelection/journeySelection[1]/arriveLocation/search",
+            @"requestor": @"amtrak.presentation.handler.page.rail.AmtrakRailGetTrainStatusPageHandler",
+            @"xwdf_trainNumber": @"/sessionWorkflow/productWorkflow[@product='Rail']/tripRequirements/journeyRequirements[1]/segmentRequirements[1]/serviceCode",
+            @"wdf_trainNumber": @"optional",
+            @"_handler=amtrak.presentation.handler.request.rail.AmtrakRailTrainStatusSearchRequestHandler/_xpath=/sessionWorkflow/productWorkflow[@product='Rail']": @""
+         };
     }
     
-    return [NSDictionary dictionaryWithDictionary:params];
+    return params;
 }
 
-- (NSData*)loadAmtrakPage {
+- (void)loadAmtrakPage {
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:[self baseParams]];
     
     NSString *date = [[self dateFormatter] stringFromDate:[NSDate date]];
@@ -69,16 +71,13 @@
     
     NSData *requestBody = [self encodeDictionary:params];
     
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"http://tickets.amtrak.com/itd/amtrak"]];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
-    [request setHTTPBody:requestBody];
-    [request setHTTPMethod:@"POST"];
+    UNIHTTPBinaryResponse *response = [[UNIRest postEntity:^(UNIBodyRequest *request) {
+        [request setUrl:@"http://tickets.amtrak.com/itd/amtrak"];
+        [request setHeaders:@{@"Content-Type": @"application/x-www-form-urlencoded"}];
+        [request setBody:requestBody];
+    }] asBinary];
     
-    NSHTTPURLResponse *response = [[NSHTTPURLResponse alloc] init];
-    NSError *error = [[NSError alloc] init];
-    
-    return [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    [self parseTrainData:[response rawBody]];
 }
 
 - (NSString *)getStringValueFor:(NSString *)xpath from:(NSXMLNode *)node {
@@ -92,7 +91,11 @@
     return string;
 }
 
-- (NSArray *)parseTrainData:(NSData *)pageData {
+- (void)parseTrainData:(NSData *)pageData {
+    if (pageData == nil) {
+        return;
+    }
+    
     NSError *error = nil;
     NSXMLDocument *xmlDoc = [[NSXMLDocument alloc] initWithData:pageData options:NSXMLDocumentTidyHTML error:&error];
     
@@ -112,7 +115,6 @@
     for(NSXMLNode *n in trains) {
         NSMutableDictionary *train = [[NSMutableDictionary alloc] init];
         
-        
         [train setObject:[self getStringValueFor:@".//th[@class='service']/div[@class='route_num']/text()" from:n]
                   forKey:@"train"];
         [train setObject:[self getStringValueFor:@".//td[@class='act_est']/div[@class='time']/text()" from:n]
@@ -123,24 +125,11 @@
         [trainData addObject:train];
     }
     
-    return trainData;
+    [target performSelectorOnMainThread:@selector(updateView:) withObject:trainData waitUntilDone:YES];
 }
 
-- (NSArray *)getAmtrakStatus {
-    NSData *amtrakPageData = [self loadAmtrakPage];
-    if (amtrakPageData) {
-        NSArray *trains = [self parseTrainData:amtrakPageData];
-        
-        for (NSDictionary *train in trains) {
-            NSLog(@"Train: %@", [train objectForKey:@"train"]);
-            NSLog(@"Scheduled: %@", [train objectForKey:@"scheduled"]);
-            NSLog(@"Estimate: %@", [train objectForKey:@"estimated"]);
-        }
-        
-        return trains;
-    }
-    
-    return [NSArray array];
+- (void)getAmtrakStatus {
+    [self loadAmtrakPage];
 }
 
 @end
