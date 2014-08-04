@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol TLAmtrakStatusDelegate
+@protocol TLAmtrakStatusGrabberDelegate
 
 - (void)updateView:(NSArray*)trains;
 
@@ -16,12 +16,12 @@
 
 @interface TLAmtrakStatusGrabber : NSObject
 
-- (id)initWithHome:(NSString*)newHome andWork:(NSString*)newWork andTarget:(NSObject<TLAmtrakStatusDelegate>*)target;
+- (id)initWithTarget:(NSObject<TLAmtrakStatusGrabberDelegate>*)target;
 - (void)getAmtrakStatus;
 
 @property NSDateFormatter *dateFormatter;
-@property NSString *home;
-@property NSString *work;
-@property NSObject<TLAmtrakStatusDelegate>* target;
+@property NSString *from;
+@property NSString *to;
+@property NSObject<TLAmtrakStatusGrabberDelegate>* target;
 
 @end

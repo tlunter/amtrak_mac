@@ -8,10 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface TLTrainListItemTrainView : NSView
+@interface TLTrainListItemTrainView : TLTrainListItemTextView
 
-- (id)initWithIndex:(NSInteger)i andText:(NSString*)text;
-
-@property NSString *string;
+- (CGFloat)width;
+- (CGFloat)leftOffset;
 
 @end

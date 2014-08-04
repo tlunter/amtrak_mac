@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface TLAppDelegate : NSObject<TLAmtrakStatusDelegate>
+@interface TLAppDelegate : NSObject<TLAmtrakStatusGrabberDelegate>
 
 - (void)updateView:(NSArray*)trains;
 

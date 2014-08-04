@@ -1,5 +1,5 @@
 //
-//  TLTrainListItemScheduledView.h
+//  TLTrainListItemTrainView.h
 //  Amtrak Status
 //
 //  Created by Todd Lunter on 7/28/14.
@@ -8,9 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface TLTrainListItemScheduledView : TLTrainListItemTextView
+@interface TLTrainListItemTextView : NSView
 
+- (id)initWithText:(NSString*)text;
 - (CGFloat)width;
 - (CGFloat)leftOffset;
+- (NSPoint)origin;
+- (NSSize)size;
+
+@property NSString *string;
 
 @end

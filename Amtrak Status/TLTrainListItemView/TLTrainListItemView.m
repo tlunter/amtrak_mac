@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Todd Lunter. All rights reserved.
 //
 
+#import "TLAmtrakStatusView.h"
+#import "TLTrainListItemTextView.h"
 #import "TLTrainListItemTrainView.h"
 #import "TLTrainListItemScheduledView.h"
 #import "TLTrainListItemEstimatedView.h"
@@ -15,19 +17,20 @@
 
 @synthesize train, scheduled, estimated, backgroundColor;
 
-- (id)initWithIndex:(NSInteger)i andTrain:(NSString*)t andScheduled:(NSString*)s andEstimated:(NSString*)e
+- (id)initWithIndex:(NSInteger)i andTrain:(NSString*)t andScheduled:(NSString*)s andEstimated:(NSString*)e andColor:(NSColor*)color
 {
-    NSRect frame = NSMakeRect(0, i * 30, 240, 30);
+    CGFloat offset = i * [TLAmtrakStatusView rowHeight];
+    NSRect frame = NSMakeRect(0, offset, 240, [TLAmtrakStatusView rowHeight]);
     self = [super initWithFrame:frame];
     if (self) {
-        [self setTrain:[[TLTrainListItemTrainView alloc] initWithIndex:i andText:t]];
-        [self setScheduled:[[TLTrainListItemScheduledView alloc] initWithIndex:i andText:s]];
-        [self setEstimated:[[TLTrainListItemEstimatedView alloc] initWithIndex:i andText:e]];
+        [self setTrain:[[TLTrainListItemTrainView alloc] initWithText:t]];
+        [self setScheduled:[[TLTrainListItemScheduledView alloc] initWithText:s]];
+        [self setEstimated:[[TLTrainListItemEstimatedView alloc] initWithText:e]];
         [self addSubview:train];
         [self addSubview:scheduled];
         [self addSubview:estimated];
         
-        [self setBackgroundColor:[[NSColor controlAlternatingRowBackgroundColors] objectAtIndex:i % 2]];
+        [self setBackgroundColor:color];
     }
     return self;
 }

@@ -24,6 +24,7 @@
 		3A2F05E8198C422A00237226 /* UNIRest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F05D9198C422A00237226 /* UNIRest.m */; };
 		3A2F05E9198C422A00237226 /* UNIUrlConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F05DB198C422A00237226 /* UNIUrlConnection.m */; };
 		3A2F05EC198C479400237226 /* TLPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F05EB198C479400237226 /* TLPreferencesWindowController.m */; };
+		3A2F05F0198EC2D700237226 /* TLTrainListItemTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F05EF198EC2D700237226 /* TLTrainListItemTextView.m */; };
 		3A64C395198725A100053DC7 /* TLTrainListItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A64C394198725A100053DC7 /* TLTrainListItemView.m */; };
 		3A64C399198725C000053DC7 /* TLTrainListItemTrainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A64C398198725C000053DC7 /* TLTrainListItemTrainView.m */; };
 		3A64C39D198725E500053DC7 /* TLTrainListItemScheduledView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A64C39C198725E500053DC7 /* TLTrainListItemScheduledView.m */; };
@@ -87,6 +88,8 @@
 		3A2F05DB198C422A00237226 /* UNIUrlConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UNIUrlConnection.m; sourceTree = "<group>"; };
 		3A2F05EA198C479400237226 /* TLPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TLPreferencesWindowController.h; path = TLPreferencesWindowController/TLPreferencesWindowController.h; sourceTree = "<group>"; };
 		3A2F05EB198C479400237226 /* TLPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TLPreferencesWindowController.m; path = TLPreferencesWindowController/TLPreferencesWindowController.m; sourceTree = "<group>"; };
+		3A2F05EE198EC2D700237226 /* TLTrainListItemTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TLTrainListItemTextView.h; path = TLTrainListItemTextView/TLTrainListItemTextView.h; sourceTree = "<group>"; };
+		3A2F05EF198EC2D700237226 /* TLTrainListItemTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TLTrainListItemTextView.m; path = TLTrainListItemTextView/TLTrainListItemTextView.m; sourceTree = "<group>"; };
 		3A64C393198725A100053DC7 /* TLTrainListItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TLTrainListItemView.h; path = TLTrainListItemView/TLTrainListItemView.h; sourceTree = "<group>"; };
 		3A64C394198725A100053DC7 /* TLTrainListItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TLTrainListItemView.m; path = TLTrainListItemView/TLTrainListItemView.m; sourceTree = "<group>"; };
 		3A64C397198725C000053DC7 /* TLTrainListItemTrainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TLTrainListItemTrainView.h; path = TLTrainListItemTrainView/TLTrainListItemTrainView.h; sourceTree = "<group>"; };
@@ -210,6 +213,15 @@
 			name = TLPreferencesWindowController;
 			sourceTree = "<group>";
 		};
+		3A2F05F1198EC2DC00237226 /* TLTrainListItemTextView */ = {
+			isa = PBXGroup;
+			children = (
+				3A2F05EE198EC2D700237226 /* TLTrainListItemTextView.h */,
+				3A2F05EF198EC2D700237226 /* TLTrainListItemTextView.m */,
+			);
+			name = TLTrainListItemTextView;
+			sourceTree = "<group>";
+		};
 		3A64C396198725A700053DC7 /* TLTrainListItemView */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,6 +310,7 @@
 				3AC026EB1981CE6700AEDAE9 /* TLAmtrakStatusGrabber */,
 				3A1B2AC619833D3300EB2C05 /* TLAmtrakStatusView */,
 				3A64C396198725A700053DC7 /* TLTrainListItemView */,
+				3A2F05F1198EC2DC00237226 /* TLTrainListItemTextView */,
 				3A64C39A198725C400053DC7 /* TLTrainListItemTrainView */,
 				3A64C39E198725E900053DC7 /* TLTrainListItemScheduledView */,
 				3A64C3A21987260200053DC7 /* TLTrainListItemEstimatedView */,
@@ -464,6 +477,7 @@
 				3A2F05EC198C479400237226 /* TLPreferencesWindowController.m in Sources */,
 				3A2F05E7198C422A00237226 /* UNIHTTPRequestWithBody.m in Sources */,
 				3A2F05E6198C422A00237226 /* UNIHTTPRequest.m in Sources */,
+				3A2F05F0198EC2D700237226 /* TLTrainListItemTextView.m in Sources */,
 				3A2F05DF198C422A00237226 /* UNISimpleRequest.m in Sources */,
 				3A2F05E2198C422A00237226 /* UNIHTTPResponse.m in Sources */,
 				3A2F05E0198C422A00237226 /* UNIHTTPBinaryResponse.m in Sources */,

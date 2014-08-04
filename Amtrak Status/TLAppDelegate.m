@@ -19,8 +19,16 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     amtrakStatusView = [[TLAmtrakStatusView alloc] initWithFrame:NSMakeRect(0, 0, 195, 20)];
+    [amtrakStatusView setHeader:@{@"train": @"Train", @"scheduled": @"Scheduled", @"estimated": @"Estimated"}];
+    [amtrakStatusView setTrainData:@[]];
     
     preferencesWindowController = [[TLPreferencesWindowController alloc] init];
+    amtrakStatusGrabber = [[TLAmtrakStatusGrabber alloc] initWithTarget:self];
+    
+    [[preferencesWindowController fromField] bind:@"value" toObject:amtrakStatusGrabber withKeyPath:@"from" options:nil];
+    [[preferencesWindowController toField]   bind:@"value" toObject:amtrakStatusGrabber withKeyPath:@"to"   options:nil];
+    [amtrakStatusGrabber setTo:@"pvd"];
+    [amtrakStatusGrabber setFrom:@"bby"];
     
     amtrakStatusMenu = [[TLAmtrakStatusMenu alloc] init];
     [amtrakStatusMenu setView:amtrakStatusView];
@@ -31,20 +39,13 @@
     [statusItem setImage:[NSImage imageNamed:@"Amtrak"]];
     [statusItem setAlternateImage:[NSImage imageNamed:@"AmtrakHighlighted"]];
     [statusItem setHighlightMode:YES];
-    
-    amtrakStatusGrabber = [[TLAmtrakStatusGrabber alloc] initWithHome:@"bby" andWork:@"pvd" andTarget:self];
 
     [NSThread detachNewThreadSelector:@selector(runGrabber) toTarget:self withObject:nil];
 }
 
 - (void)updateView:(NSArray*)trains {
-    NSMutableArray *array = [NSMutableArray arrayWithArray:trains];
-    NSDictionary *header = @{@"train": @"Train", @"scheduled": @"Scheduled", @"estimated": @"Estimated"};
-    
-    [array insertObject:header atIndex:0];
-    
     @autoreleasepool {
-        [amtrakStatusView setTrainData:array];
+        [amtrakStatusView setTrainData:trains];
     }
 }
 

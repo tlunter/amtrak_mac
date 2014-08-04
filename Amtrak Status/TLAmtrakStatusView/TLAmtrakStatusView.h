@@ -10,6 +10,9 @@
 
 @interface TLAmtrakStatusView : NSScrollView
 
++ (NSInteger)rowHeight;
 - (void)setTrainData:(NSArray *)trainData;
+
+@property NSDictionary *header;
 
 @end
