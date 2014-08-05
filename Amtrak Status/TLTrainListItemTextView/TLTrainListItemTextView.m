@@ -42,7 +42,7 @@
 - (void)drawRect:(NSRect)dirtyRect
 {
     [string drawInRect:[self frame] withAttributes:[[NSDictionary alloc] initWithObjectsAndKeys:
-                                                    [NSFont systemFontOfSize:16.0], NSFontAttributeName,
+                                                    [NSFont systemFontOfSize:14.0], NSFontAttributeName,
                                                     nil]];
 }
 

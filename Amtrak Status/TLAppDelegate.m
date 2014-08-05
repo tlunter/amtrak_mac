@@ -14,22 +14,48 @@
 
 @implementation TLAppDelegate
 
-@synthesize statusItem, trainData, amtrakStatusMenu, amtrakStatusView, amtrakStatusGrabber, preferencesWindowController;
+@synthesize statusItem, trainData, updateTimer, amtrakStatusMenu, amtrakStatusView, amtrakStatusGrabber, preferencesWindowController;
 
-- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
-{
+- (void)setUpDefaultSettings {
+    NSString *userDefaultsValuesPath;
+    NSDictionary *userDefaultsValuesDict;
+    
+    // load the default values for the user defaults
+    userDefaultsValuesPath=[[NSBundle mainBundle] pathForResource:@"UserDefaults"
+                                                           ofType:@"plist"];
+    userDefaultsValuesDict=[NSDictionary dictionaryWithContentsOfFile:userDefaultsValuesPath];
+    
+    // set them in the standard user defaults
+    [[NSUserDefaults standardUserDefaults] registerDefaults:userDefaultsValuesDict];
+}
+
+- (void)buildMenuItemView {
     amtrakStatusView = [[TLAmtrakStatusView alloc] initWithFrame:NSMakeRect(0, 0, 195, 20)];
     [amtrakStatusView setHeader:@{@"train": @"Train", @"scheduled": @"Scheduled", @"estimated": @"Estimated"}];
     [amtrakStatusView setTrainData:@[]];
-    
+}
+
+- (void)buildPreferences {
     preferencesWindowController = [[TLPreferencesWindowController alloc] init];
-    amtrakStatusGrabber = [[TLAmtrakStatusGrabber alloc] initWithTarget:self];
-    
-    [[preferencesWindowController fromField] bind:@"value" toObject:amtrakStatusGrabber withKeyPath:@"from" options:nil];
-    [[preferencesWindowController toField]   bind:@"value" toObject:amtrakStatusGrabber withKeyPath:@"to"   options:nil];
-    [amtrakStatusGrabber setTo:@"pvd"];
-    [amtrakStatusGrabber setFrom:@"bby"];
-    
+    [[preferencesWindowController fromField] bind:@"value"
+                                         toObject:[NSUserDefaultsController sharedUserDefaultsController]
+                                      withKeyPath:@"values.from"
+                                          options:@{@"NSContinuouslyUpdatesValue": @YES}];
+    [[preferencesWindowController toField]   bind:@"value"
+                                         toObject:[NSUserDefaultsController sharedUserDefaultsController]
+                                      withKeyPath:@"values.to"
+                                          options:@{@"NSContinuouslyUpdatesValue": @YES}];
+    [[NSUserDefaults standardUserDefaults] addObserver:self
+                                            forKeyPath:@"from"
+                                               options:NSKeyValueObservingOptionNew
+                                               context:NULL];
+    [[NSUserDefaults standardUserDefaults] addObserver:self
+                                            forKeyPath:@"to"
+                                               options:NSKeyValueObservingOptionNew
+                                               context:NULL];
+}
+
+- (void)buildMenu {
     amtrakStatusMenu = [[TLAmtrakStatusMenu alloc] init];
     [amtrakStatusMenu setView:amtrakStatusView];
     [amtrakStatusMenu setPreferencesWindowController:preferencesWindowController];
@@ -39,8 +65,39 @@
     [statusItem setImage:[NSImage imageNamed:@"Amtrak"]];
     [statusItem setAlternateImage:[NSImage imageNamed:@"AmtrakHighlighted"]];
     [statusItem setHighlightMode:YES];
+}
 
-    [NSThread detachNewThreadSelector:@selector(runGrabber) toTarget:self withObject:nil];
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification
+{
+    [self setUpDefaultSettings];
+    [self buildMenuItemView];
+
+    amtrakStatusGrabber = [[TLAmtrakStatusGrabber alloc] initWithTarget:self];
+    
+    [self buildPreferences];
+
+    [amtrakStatusGrabber setTo:[[NSUserDefaults standardUserDefaults] stringForKey:@"to"]];
+    [amtrakStatusGrabber setFrom:[[NSUserDefaults standardUserDefaults] stringForKey:@"from"]];
+    
+    [self buildMenu];
+
+    [self startGrabber];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"from"]) {
+        [amtrakStatusGrabber setFrom:[change objectForKey:NSKeyValueChangeNewKey]];
+    }
+    
+    if ([keyPath isEqualToString:@"to"]) {
+        [amtrakStatusGrabber setTo:[change objectForKey:NSKeyValueChangeNewKey]];
+    }
+    
+    if ([keyPath isEqualToString:@"from"] || [keyPath isEqualToString:@"to"]) {
+        if ([[amtrakStatusGrabber from] length] >= 3 && [[amtrakStatusGrabber to] length] >= 3) {
+            [updateTimer fire];
+        }
+    }
 }
 
 - (void)updateView:(NSArray*)trains {
@@ -49,13 +106,17 @@
     }
 }
 
+- (void)startGrabber {
+    NSMethodSignature *methodSig = [self methodSignatureForSelector:@selector(runGrabber)];
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];
+    [invocation setTarget:self];
+    [invocation setSelector:@selector(runGrabber)];
+    updateTimer = [NSTimer timerWithTimeInterval:30.0f invocation:invocation repeats:YES];
+    [updateTimer fire];
+}
+
 - (void)runGrabber {
-    while (true) {
-        @autoreleasepool {
-            [amtrakStatusGrabber getAmtrakStatus];
-            [NSThread sleepForTimeInterval:30.0f];
-        }
-    }
+    [NSThread detachNewThreadSelector:@selector(getAmtrakStatus) toTarget:amtrakStatusGrabber withObject:nil];
 }
 
 @end

@@ -13,11 +13,11 @@
 @synthesize fromField, toField;
 
 + (CGFloat)width {
-    return 300;
+    return 200;
 }
 
 + (CGFloat)height {
-    return 200;
+    return 100;
 }
 
 - (id)init
@@ -36,12 +36,32 @@
     [window setReleasedWhenClosed:NO];
     self = [super initWithWindow:window];
     if (self) {
-        fromField = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 30, 120, 30)];
+        int fromLabelX = (([TLPreferencesWindowController width] - 120) / 2) - 45;
+        int fromFieldX = (([TLPreferencesWindowController width] - 120) / 2) + 20;
+        int fromY = ([TLPreferencesWindowController height] / 2) + 7.5;
+        NSTextField *fromLabel = [[NSTextField alloc] initWithFrame:NSMakeRect(fromLabelX, fromY, 60, 20)];
+        [fromLabel setBackgroundColor:[NSColor controlColor]];
+        [fromLabel setBezeled:NO];
+        [fromLabel setEditable:NO];
+        [fromLabel setStringValue:@"From:"];
+        [fromLabel setAlignment:NSRightTextAlignment];
+        fromField = [[NSTextField alloc] initWithFrame:NSMakeRect(fromFieldX, fromY, 120, 22)];
+        [[fromField cell] setPlaceholderString:@"From"];
         
-        toField = [[NSTextField alloc] initWithFrame:NSMakeRect(0, 0, 120, 30)];
+        int toLabelX = (([TLPreferencesWindowController width] - 120) / 2) - 45;
+        int toFieldX = (([TLPreferencesWindowController width] - 120) / 2) + 20;
+        int toY = ([TLPreferencesWindowController height] / 2) - 27.5;
+        NSTextField *toLabel = [[NSTextField alloc] initWithFrame:NSMakeRect(toLabelX, toY, 60, 20)];
+        [toLabel setBackgroundColor:[NSColor controlColor]];
+        [toLabel setBezeled:NO];
+        [toLabel setEditable:NO];
+        [toLabel setStringValue:@"To:"];
+        [toLabel setAlignment:NSRightTextAlignment];
+        toField = [[NSTextField alloc] initWithFrame:NSMakeRect(toFieldX, toY, 120, 22)];
         
+        [[window contentView] addSubview:fromLabel];
         [[window contentView] addSubview:fromField];
-        
+        [[window contentView] addSubview:toLabel];
         [[window contentView] addSubview:toField];
     }
     return self;

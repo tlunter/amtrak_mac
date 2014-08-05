@@ -58,6 +58,16 @@
     return params;
 }
 
+- (NSRegularExpression*)estimatedRegularExpression {
+    static NSRegularExpression *expression = nil;
+    if (expression == nil) {
+        expression = [NSRegularExpression regularExpressionWithPattern:@"^\\(?([^)]*?)\\)?$"
+                                                               options:NSRegularExpressionCaseInsensitive
+                                                                 error:nil];
+    }
+    return expression;
+}
+
 - (void)loadAmtrakPage {
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:[self baseParams]];
     
@@ -106,6 +116,7 @@
                                       error:&error];
     if (error) {
         NSLog(@"nodesForXpath Error: %@", [error localizedDescription]);
+        return;
     }
     
     NSMutableArray *trainData = [NSMutableArray array];
@@ -115,10 +126,16 @@
         
         [train setObject:[self getStringValueFor:@".//th[@class='service']/div[@class='route_num']/text()" from:n]
                   forKey:@"train"];
-        [train setObject:[self getStringValueFor:@".//td[@class='act_est']/div[@class='time']/text()" from:n]
-                  forKey:@"estimated"];
         [train setObject:[self getStringValueFor:@".//td[@class='scheduled']/div[@class='time']/text()" from:n]
                   forKey:@"scheduled"];
+        NSString *estimated = [self getStringValueFor:@".//td[@class='act_est']/div[@class='time']/text()" from:n];
+        NSTextCheckingResult *match = [[self estimatedRegularExpression] firstMatchInString:estimated options:0 range:NSMakeRange(0, [estimated length])];
+        
+        if (match) {
+            estimated = [estimated substringWithRange:[match rangeAtIndex:1]];
+        }
+        
+        [train setObject:estimated forKey:@"estimated"];
         
         [trainData addObject:train];
     }

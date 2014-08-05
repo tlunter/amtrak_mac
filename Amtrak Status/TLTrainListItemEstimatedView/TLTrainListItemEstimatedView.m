@@ -16,7 +16,7 @@
 }
 
 - (CGFloat)leftOffset {
-    return 76.5;
+    return 74.5;
 }
 
 @end

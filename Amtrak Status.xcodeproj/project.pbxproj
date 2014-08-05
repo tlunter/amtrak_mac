@@ -25,6 +25,7 @@
 		3A2F05E9198C422A00237226 /* UNIUrlConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F05DB198C422A00237226 /* UNIUrlConnection.m */; };
 		3A2F05EC198C479400237226 /* TLPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F05EB198C479400237226 /* TLPreferencesWindowController.m */; };
 		3A2F05F0198EC2D700237226 /* TLTrainListItemTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F05EF198EC2D700237226 /* TLTrainListItemTextView.m */; };
+		3A3A91EE19907EB600EE7E1D /* UserDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A3A91ED19907EB600EE7E1D /* UserDefaults.plist */; };
 		3A64C395198725A100053DC7 /* TLTrainListItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A64C394198725A100053DC7 /* TLTrainListItemView.m */; };
 		3A64C399198725C000053DC7 /* TLTrainListItemTrainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A64C398198725C000053DC7 /* TLTrainListItemTrainView.m */; };
 		3A64C39D198725E500053DC7 /* TLTrainListItemScheduledView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A64C39C198725E500053DC7 /* TLTrainListItemScheduledView.m */; };
@@ -90,6 +91,7 @@
 		3A2F05EB198C479400237226 /* TLPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TLPreferencesWindowController.m; path = TLPreferencesWindowController/TLPreferencesWindowController.m; sourceTree = "<group>"; };
 		3A2F05EE198EC2D700237226 /* TLTrainListItemTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TLTrainListItemTextView.h; path = TLTrainListItemTextView/TLTrainListItemTextView.h; sourceTree = "<group>"; };
 		3A2F05EF198EC2D700237226 /* TLTrainListItemTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TLTrainListItemTextView.m; path = TLTrainListItemTextView/TLTrainListItemTextView.m; sourceTree = "<group>"; };
+		3A3A91ED19907EB600EE7E1D /* UserDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserDefaults.plist; sourceTree = "<group>"; };
 		3A64C393198725A100053DC7 /* TLTrainListItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TLTrainListItemView.h; path = TLTrainListItemView/TLTrainListItemView.h; sourceTree = "<group>"; };
 		3A64C394198725A100053DC7 /* TLTrainListItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TLTrainListItemView.m; path = TLTrainListItemView/TLTrainListItemView.m; sourceTree = "<group>"; };
 		3A64C397198725C000053DC7 /* TLTrainListItemTrainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TLTrainListItemTrainView.h; path = TLTrainListItemTrainView/TLTrainListItemTrainView.h; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 				3AC026B41981AE9700AEDAE9 /* main.m */,
 				3AC026B61981AE9700AEDAE9 /* Amtrak Status-Prefix.pch */,
 				3AC026B71981AE9700AEDAE9 /* Credits.rtf */,
+				3A3A91ED19907EB600EE7E1D /* UserDefaults.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AC026B31981AE9700AEDAE9 /* InfoPlist.strings in Resources */,
+				3A3A91EE19907EB600EE7E1D /* UserDefaults.plist in Resources */,
 				3A1B2A8019832EF900EB2C05 /* MainMenu.xib in Resources */,
 				3AC026C11981AE9700AEDAE9 /* Images.xcassets in Resources */,
 				3AC026B91981AE9700AEDAE9 /* Credits.rtf in Resources */,
