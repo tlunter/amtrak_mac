@@ -112,6 +112,7 @@
     [invocation setTarget:self];
     [invocation setSelector:@selector(runGrabber)];
     updateTimer = [NSTimer timerWithTimeInterval:30.0f invocation:invocation repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:updateTimer forMode:NSDefaultRunLoopMode];
     [updateTimer fire];
 }
 
