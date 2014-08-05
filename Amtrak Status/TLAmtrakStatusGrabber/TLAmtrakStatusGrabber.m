@@ -11,14 +11,12 @@
 
 @implementation TLAmtrakStatusGrabber
 
-@synthesize dateFormatter, home, work, target;
+@synthesize dateFormatter, from, to, target;
 
-- (id)initWithHome:(NSString*)h andWork:(NSString*)w andTarget:(NSObject<TLAmtrakStatusDelegate>*)t {
+- (id)initWithTarget:(NSObject<TLAmtrakStatusGrabberDelegate>*)t {
     self = [super init];
     
     if (self) {
-        [self setHome:h];
-        [self setWork:w];
         [self setDateFormatter:[[NSDateFormatter alloc] init]];
         [dateFormatter setDateFormat:@"EEE, MMM d, yyyy"];
         [self setTarget:t];
@@ -60,13 +58,23 @@
     return params;
 }
 
+- (NSRegularExpression*)estimatedRegularExpression {
+    static NSRegularExpression *expression = nil;
+    if (expression == nil) {
+        expression = [NSRegularExpression regularExpressionWithPattern:@"^\\(?([^)]*?)\\)?$"
+                                                               options:NSRegularExpressionCaseInsensitive
+                                                                 error:nil];
+    }
+    return expression;
+}
+
 - (void)loadAmtrakPage {
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithDictionary:[self baseParams]];
     
     NSString *date = [[self dateFormatter] stringFromDate:[NSDate date]];
     
-    [params setObject:[self work] forKey:@"wdf_origin"];
-    [params setObject:[self home] forKey:@"wdf_destination"];
+    [params setObject:[self from] forKey:@"wdf_origin"];
+    [params setObject:[self to] forKey:@"wdf_destination"];
     [params setObject:date forKey:@"/sessionWorkflow/productWorkflow[@product='Rail']/tripRequirements/journeyRequirements[1]/departDate.date"];
     
     NSData *requestBody = [self encodeDictionary:params];
@@ -101,13 +109,14 @@
     
     if (error) {
         NSLog(@"%@ %ld", [error domain], (long)[error code]);
-        NSLog(@"NSXMLDocument Error: %@", [error localizedDescription]);
+        //NSLog(@"NSXMLDocument Error: %@", [error localizedDescription]);
     }
     
     NSArray *trains = [xmlDoc nodesForXPath:@"//tr[contains(@class, 'status_result') and contains(@class, 'departs')]"
                                       error:&error];
     if (error) {
         NSLog(@"nodesForXpath Error: %@", [error localizedDescription]);
+        return;
     }
     
     NSMutableArray *trainData = [NSMutableArray array];
@@ -117,10 +126,16 @@
         
         [train setObject:[self getStringValueFor:@".//th[@class='service']/div[@class='route_num']/text()" from:n]
                   forKey:@"train"];
-        [train setObject:[self getStringValueFor:@".//td[@class='act_est']/div[@class='time']/text()" from:n]
-                  forKey:@"estimated"];
         [train setObject:[self getStringValueFor:@".//td[@class='scheduled']/div[@class='time']/text()" from:n]
                   forKey:@"scheduled"];
+        NSString *estimated = [self getStringValueFor:@".//td[@class='act_est']/div[@class='time']/text()" from:n];
+        NSTextCheckingResult *match = [[self estimatedRegularExpression] firstMatchInString:estimated options:0 range:NSMakeRange(0, [estimated length])];
+        
+        if (match) {
+            estimated = [estimated substringWithRange:[match rangeAtIndex:1]];
+        }
+        
+        [train setObject:estimated forKey:@"estimated"];
         
         [trainData addObject:train];
     }

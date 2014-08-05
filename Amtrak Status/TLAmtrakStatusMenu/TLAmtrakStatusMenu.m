@@ -28,7 +28,8 @@
 }
 
 - (void)openPreferences:(id)sender {
-    [preferencesWindowController showWindow:self];
+    [[preferencesWindowController window] makeKeyAndOrderFront:self];
+    [NSApp activateIgnoringOtherApps:YES];
 }
 
 - (void)quitApp:(id)sender {

@@ -10,4 +10,7 @@
 
 @interface TLPreferencesWindowController : NSWindowController
 
+@property NSTextField *fromField;
+@property NSTextField *toField;
+
 @end
