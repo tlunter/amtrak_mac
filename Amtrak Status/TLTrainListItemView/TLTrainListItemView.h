@@ -12,7 +12,7 @@
 
 @interface TLTrainListItemView : NSView
 
-- (id)initWithIndex:(NSInteger)i andTrain:(NSString*)t andScheduled:(NSString*)s andEstimated:(NSString*)e andColor:(NSColor*)color;
+- (id)initWithIndex:(NSInteger)i andTrain:(TLTrain *)t andColor:(NSColor *)color;
 
 @property TLTrainListItemTrainView *train;
 @property TLTrainListItemEstimatedView *estimated;

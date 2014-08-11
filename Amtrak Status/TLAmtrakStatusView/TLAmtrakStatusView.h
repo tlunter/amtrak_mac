@@ -8,11 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface TLAmtrakStatusView : NSScrollView
+@interface TLAmtrakStatusView : NSView
 
 + (NSInteger)rowHeight;
 - (void)setTrainData:(NSArray *)trainData;
 
-@property NSDictionary *header;
+@property TLTrain *header;
+@property NSArray *trains;
 
 @end

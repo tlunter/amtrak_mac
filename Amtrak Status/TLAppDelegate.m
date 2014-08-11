@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 ___FULLUSERNAME___. All rights reserved.
 //
 
+#import "TLTrain.h"
 #import "TLPreferencesWindowController.h"
 #import "TLAmtrakStatusMenu.h"
 #import "TLAmtrakStatusGrabber.h"
@@ -31,7 +32,13 @@
 
 - (void)buildMenuItemView {
     amtrakStatusView = [[TLAmtrakStatusView alloc] initWithFrame:NSMakeRect(0, 0, 195, 20)];
-    [amtrakStatusView setHeader:@{@"train": @"Train", @"scheduled": @"Scheduled", @"estimated": @"Estimated"}];
+    
+    TLTrain *header = [[TLTrain alloc] init];
+    [header setNumber:@"Train"];
+    [header setScheduled:@"Scheduled"];
+    [header setEstimated:@"Estimated"];
+    
+    [amtrakStatusView setHeader:header];
     [amtrakStatusView setTrainData:@[]];
 }
 

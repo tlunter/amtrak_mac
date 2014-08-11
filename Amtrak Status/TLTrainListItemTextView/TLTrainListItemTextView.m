@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Todd Lunter. All rights reserved.
 //
 
+#import "TLTrain.h"
 #import "TLAmtrakStatusView.h"
 #import "TLTrainListItemTextView.h"
 

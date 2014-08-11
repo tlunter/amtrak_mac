@@ -7,6 +7,7 @@
 //
 
 #import "UNIRest.h"
+#import "TLTrain.h"
 #import "TLAmtrakStatusGrabber.h"
 
 @implementation TLAmtrakStatusGrabber
@@ -102,16 +103,17 @@
 }
 
 - (void)parseTrainData:(NSData *)pageData {
-    if (pageData == nil) {
+    if (pageData == nil || [pageData length] == 0) {
         return;
     }
     
     NSError *error = nil;
     NSXMLDocument *xmlDoc = [[NSXMLDocument alloc] initWithData:pageData options:NSXMLDocumentTidyHTML error:&error];
     
-    if (error) {
+    if ([error code] > 1) {
         NSLog(@"%@ %ld", [error domain], (long)[error code]);
-        //NSLog(@"NSXMLDocument Error: %@", [error localizedDescription]);
+        NSLog(@"NSXMLDocument Error: %@", [error localizedDescription]);
+        return;
     }
     
     NSArray *trains = [xmlDoc nodesForXPath:@"//tr[contains(@class, 'status_result') and contains(@class, 'departs')]"
@@ -124,12 +126,10 @@
     NSMutableArray *trainData = [NSMutableArray array];
     
     for(NSXMLNode *n in trains) {
-        NSMutableDictionary *train = [[NSMutableDictionary alloc] init];
+        TLTrain *train = [[TLTrain alloc] init];
         
-        [train setObject:[self getStringValueFor:@".//th[@class='service']/div[@class='route_num']/text()" from:n]
-                  forKey:@"train"];
-        [train setObject:[self getStringValueFor:@".//td[@class='scheduled']/div[@class='time']/text()" from:n]
-                  forKey:@"scheduled"];
+        [train setNumber:[self getStringValueFor:@".//th[@class='service']/div[@class='route_num']/text()" from:n]];
+        [train setScheduled:[self getStringValueFor:@".//td[@class='scheduled']/div[@class='time']/text()" from:n]];
         NSString *estimated = [self getStringValueFor:@".//td[@class='act_est']/div[@class='time']/text()" from:n];
         NSTextCheckingResult *match = [[self estimatedRegularExpression] firstMatchInString:estimated options:0 range:NSMakeRange(0, [estimated length])];
         
@@ -137,7 +137,7 @@
             estimated = [estimated substringWithRange:[match rangeAtIndex:1]];
         }
         
-        [train setObject:estimated forKey:@"estimated"];
+        [train setEstimated:estimated];
         
         [trainData addObject:train];
     }
