@@ -51,7 +51,9 @@
             @"requestor": @"amtrak.presentation.handler.page.rail.AmtrakRailGetTrainStatusPageHandler",
             @"xwdf_trainNumber": @"/sessionWorkflow/productWorkflow[@product='Rail']/tripRequirements/journeyRequirements[1]/segmentRequirements[1]/serviceCode",
             @"wdf_trainNumber": @"optional",
-            @"_handler=amtrak.presentation.handler.request.rail.AmtrakRailTrainStatusSearchRequestHandler/_xpath=/sessionWorkflow/productWorkflow[@product='Rail']": @""
+            @"_handler=amtrak.presentation.handler.request.rail.AmtrakRailTrainStatusSearchRequestHandler/_xpath=/sessionWorkflow/productWorkflow[@product='Rail']": @"",
+            @"wdf_SortBy": @"arrivalTime",
+            @"xwdf_SortBy": @"/sessionWorkflow/productWorkflow[@product='Rail']/tripRequirements/journeyRequirements[1]/departDate/@radioSelect"
          };
     }
     
