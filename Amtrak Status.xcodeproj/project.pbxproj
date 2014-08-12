@@ -272,6 +272,15 @@
 			name = TLTrainListItemEstimatedView;
 			sourceTree = "<group>";
 		};
+		3AA1550B199AC2C300917EED /* TLAppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				3AC026BA1981AE9700AEDAE9 /* TLAppDelegate.h */,
+				3AC026BB1981AE9700AEDAE9 /* TLAppDelegate.m */,
+			);
+			name = TLAppDelegate;
+			sourceTree = "<group>";
+		};
 		3AC0269C1981AE9700AEDAE9 = {
 			isa = PBXGroup;
 			children = (
@@ -315,8 +324,7 @@
 		3AC026AE1981AE9700AEDAE9 /* Amtrak Status */ = {
 			isa = PBXGroup;
 			children = (
-				3AC026BA1981AE9700AEDAE9 /* TLAppDelegate.h */,
-				3AC026BB1981AE9700AEDAE9 /* TLAppDelegate.m */,
+				3AA1550B199AC2C300917EED /* TLAppDelegate */,
 				3A1B2A7F19832EF900EB2C05 /* MainMenu.xib */,
 				3AC026C01981AE9700AEDAE9 /* Images.xcassets */,
 				3AC026AF1981AE9700AEDAE9 /* Supporting Files */,
