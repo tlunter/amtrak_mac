@@ -10,15 +10,14 @@
 
 @interface TLAppDelegate : NSObject<TLAmtrakStatusGrabberDelegate>
 
-- (void)updateView:(NSArray*)trains;
+- (void)updateData:(NSArray*)trains;
 
 @property (assign) IBOutlet NSWindow *window;
-@property NSStatusItem *statusItem;
 @property NSArray *trainData;
 @property NSTimer *updateTimer;
 @property TLAmtrakStatusMenu *amtrakStatusMenu;
 @property TLAmtrakStatusView *amtrakStatusView;
 @property TLAmtrakStatusGrabber *amtrakStatusGrabber;
-@property TLPreferencesWindowController *preferencesWindowController;
+@property IBOutlet TLPreferencesWindowController *preferencesWindowController;
 
 @end

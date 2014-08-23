@@ -16,7 +16,7 @@
 
 - (id)init {
     self = [super init];
-    
+
     if (self) {
         [self setTrains:@[]];
     }
@@ -31,14 +31,14 @@
     if (![trainData isEqualToArray:[self trains]]) {
         NSLog(@"Different!");
         [self setTrains:trainData];
-        
+
         NSInteger height = [TLAmtrakStatusView rowHeight] * ([trainData count] + 1);
         [self setFrame:NSMakeRect(0, 0, 240, height)];
-        
+
         NSView *view = [[NSView alloc] initWithFrame:[self frame]];
-        
+
         NSInteger max = [trainData count];
-        
+
         for (int i = 0; i < max; i++) {
             TLTrain *train = [trainData objectAtIndex:i];
             TLTrainListItemView *tLIV = [[TLTrainListItemView alloc] initWithIndex:(max - i - 1)
@@ -46,11 +46,11 @@
                                                                           andColor:[[NSColor controlAlternatingRowBackgroundColors] objectAtIndex:(i + 1) % 2]];
             [view addSubview:tLIV];
         }
-        
+
         TLTrainListItemView *headerView = [[TLTrainListItemView alloc] initWithIndex:max
                                                                             andTrain:header
                                                                             andColor:[NSColor whiteColor]];
-        
+
         [view addSubview:headerView];
         [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
         [self addSubview:view];
