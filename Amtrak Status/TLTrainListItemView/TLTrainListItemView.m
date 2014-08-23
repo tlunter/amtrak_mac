@@ -30,7 +30,7 @@
         [self addSubview:train];
         [self addSubview:scheduled];
         [self addSubview:estimated];
-        
+
         [self setBackgroundColor:color];
     }
     return self;
@@ -39,7 +39,7 @@
 - (void)drawRect:(NSRect)dirtyRect
 {
     [super drawRect:dirtyRect];
-    
+
     [backgroundColor setFill];
     NSRectFill(dirtyRect);
 }

@@ -10,7 +10,7 @@
 
 @protocol TLAmtrakStatusGrabberDelegate
 
-- (void)updateView:(NSArray*)trains;
+- (void)updateData:(NSArray*)trains;
 
 @end
 

@@ -33,7 +33,7 @@
 - (id)initWithText:(NSString*)text
 {
     NSRect frame = NSMakeRect([self origin].x, [self origin].y, [self size].width, [self size].height);
-    
+
     self = [super initWithFrame:frame];
     if (self) {
         [self setString:text];

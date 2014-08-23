@@ -10,7 +10,9 @@
 
 @interface TLPreferencesWindowController : NSWindowController
 
-@property NSTextField *fromField;
-@property NSTextField *toField;
+@property IBOutlet NSWindow *window;
+@property IBOutlet NSTextField *fromField;
+@property IBOutlet NSTextField *toField;
+@property IBOutlet NSTextField *preferredTrainField;
 
 @end
