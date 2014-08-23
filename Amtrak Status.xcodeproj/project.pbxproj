@@ -12,6 +12,8 @@
 		3A1DD09219A7F98A004C038C /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A1DD09119A7F98A004C038C /* Sparkle.framework */; };
 		3A1DD09419A7FB26004C038C /* Sparkle.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 3A1DD09119A7F98A004C038C /* Sparkle.framework */; };
 		3A1DD09619A80318004C038C /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 3A1DD09519A80318004C038C /* dsa_pub.pem */; };
+		3A1DD0E519A81DEA004C038C /* AmtrakStatusHelper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3A1DD0DF19A81D62004C038C /* AmtrakStatusHelper.app */; };
+		3A1DD0E619A81E3D004C038C /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A1DD09719A81901004C038C /* ServiceManagement.framework */; };
 		3A2F05DC198C422A00237226 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F05BE198C422A00237226 /* Base64.m */; };
 		3A2F05DD198C422A00237226 /* UNIBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F05C1198C422A00237226 /* UNIBaseRequest.m */; };
 		3A2F05DE198C422A00237226 /* UNIBodyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F05C3198C422A00237226 /* UNIBodyRequest.m */; };
@@ -49,6 +51,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3A1DD0DE19A81D62004C038C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A1DD0D919A81D61004C038C /* AmtrakStatusHelper.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3A1DD0A219A81D60004C038C;
+			remoteInfo = AmtrakStatusHelper;
+		};
+		3A1DD0E019A81D62004C038C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A1DD0D919A81D61004C038C /* AmtrakStatusHelper.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3A1DD0C319A81D61004C038C;
+			remoteInfo = AmtrakStatusHelperTests;
+		};
 		3AC026CA1981AE9700AEDAE9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 3AC0269D1981AE9700AEDAE9 /* Project object */;
@@ -70,6 +86,16 @@
 			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		3A1DD0E419A81DD5004C038C /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = Contents/Library/LoginItems;
+			dstSubfolderSpec = 1;
+			files = (
+				3A1DD0E519A81DEA004C038C /* AmtrakStatusHelper.app in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +104,8 @@
 		3A1B2AC419833D0600EB2C05 /* TLAmtrakStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TLAmtrakStatusView.m; path = TLAmtrakStatusView/TLAmtrakStatusView.m; sourceTree = "<group>"; };
 		3A1DD09119A7F98A004C038C /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		3A1DD09519A80318004C038C /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
+		3A1DD09719A81901004C038C /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
+		3A1DD0D919A81D61004C038C /* AmtrakStatusHelper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AmtrakStatusHelper.xcodeproj; path = AmtrakStatusHelper/AmtrakStatusHelper.xcodeproj; sourceTree = "<group>"; };
 		3A2F05BD198C422A00237226 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
 		3A2F05BE198C422A00237226 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
 		3A2F05C0198C422A00237226 /* UNIBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UNIBaseRequest.h; sourceTree = "<group>"; };
@@ -151,6 +179,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A1DD0E619A81E3D004C038C /* ServiceManagement.framework in Frameworks */,
 				3AC026A91981AE9700AEDAE9 /* Cocoa.framework in Frameworks */,
 				3A1DD09219A7F98A004C038C /* Sparkle.framework in Frameworks */,
 			);
@@ -175,6 +204,15 @@
 				3A1B2AC419833D0600EB2C05 /* TLAmtrakStatusView.m */,
 			);
 			name = TLAmtrakStatusView;
+			sourceTree = "<group>";
+		};
+		3A1DD0DA19A81D61004C038C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3A1DD0DF19A81D62004C038C /* AmtrakStatusHelper.app */,
+				3A1DD0E119A81D62004C038C /* AmtrakStatusHelperTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		3A2F05BC198C422A00237226 /* Unirest */ = {
@@ -304,6 +342,7 @@
 		3AC0269C1981AE9700AEDAE9 = {
 			isa = PBXGroup;
 			children = (
+				3A1DD0D919A81D61004C038C /* AmtrakStatusHelper.xcodeproj */,
 				3A2F05BC198C422A00237226 /* Unirest */,
 				3AC026AE1981AE9700AEDAE9 /* Amtrak Status */,
 				3AC026CC1981AE9700AEDAE9 /* Amtrak StatusTests */,
@@ -324,6 +363,7 @@
 		3AC026A71981AE9700AEDAE9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3A1DD09719A81901004C038C /* ServiceManagement.framework */,
 				3A1DD09119A7F98A004C038C /* Sparkle.framework */,
 				3AC026A81981AE9700AEDAE9 /* Cocoa.framework */,
 				3AC026C71981AE9700AEDAE9 /* XCTest.framework */,
@@ -424,6 +464,7 @@
 				3AC026A21981AE9700AEDAE9 /* Frameworks */,
 				3AC026A31981AE9700AEDAE9 /* Resources */,
 				3A1DD09319A7FB05004C038C /* Copy Files */,
+				3A1DD0E419A81DD5004C038C /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -478,6 +519,12 @@
 			mainGroup = 3AC0269C1981AE9700AEDAE9;
 			productRefGroup = 3AC026A61981AE9700AEDAE9 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 3A1DD0DA19A81D61004C038C /* Products */;
+					ProjectRef = 3A1DD0D919A81D61004C038C /* AmtrakStatusHelper.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				3AC026A41981AE9700AEDAE9 /* Amtrak Status */,
@@ -485,6 +532,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		3A1DD0DF19A81D62004C038C /* AmtrakStatusHelper.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = AmtrakStatusHelper.app;
+			remoteRef = 3A1DD0DE19A81D62004C038C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3A1DD0E119A81D62004C038C /* AmtrakStatusHelperTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AmtrakStatusHelperTests.xctest;
+			remoteRef = 3A1DD0E019A81D62004C038C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3AC026A31981AE9700AEDAE9 /* Resources */ = {
@@ -682,6 +746,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
