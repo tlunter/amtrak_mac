@@ -38,12 +38,19 @@
         NSView *view = [[NSView alloc] initWithFrame:[self frame]];
 
         NSInteger max = [trainData count];
+        NSString *preferredTrain = [[NSUserDefaults standardUserDefaults] objectForKey:@"preferredTrain"];
 
         for (int i = 0; i < max; i++) {
             TLTrain *train = [trainData objectAtIndex:i];
+            NSColor *color;
+            if ([preferredTrain isEqualToString:train.number]) {
+                color = [NSColor colorWithSRGBRed:0 green:0 blue:100 alpha:.1];
+            } else {
+                color = [[NSColor controlAlternatingRowBackgroundColors] objectAtIndex:(i + 1) % 2];
+            }
             TLTrainListItemView *tLIV = [[TLTrainListItemView alloc] initWithIndex:(max - i - 1)
                                                                           andTrain:train
-                                                                          andColor:[[NSColor controlAlternatingRowBackgroundColors] objectAtIndex:(i + 1) % 2]];
+                                                                          andColor:color];
             [view addSubview:tLIV];
         }
 
