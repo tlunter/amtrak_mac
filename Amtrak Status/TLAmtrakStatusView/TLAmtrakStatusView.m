@@ -14,11 +14,13 @@
 
 @synthesize header, trains;
 
-- (id)init {
-    self = [super init];
+- (id)initWithFrame:(NSRect)frameRect {
+    self = [super initWithFrame:frameRect];
 
     if (self) {
-        [self setTrains:@[]];
+        [[NSUserDefaults standardUserDefaults]
+         addObserver:self forKeyPath:@"preferredTrain"
+         options:NSKeyValueObservingOptionNew context:NULL];
     }
     return self;
 }
@@ -31,36 +33,46 @@
     if (![trainData isEqualToArray:[self trains]]) {
         NSLog(@"Different!");
         [self setTrains:trainData];
+        [self updateView];
+    }
+}
 
-        NSInteger height = [TLAmtrakStatusView rowHeight] * ([trainData count] + 1);
-        [self setFrame:NSMakeRect(0, 0, 240, height)];
+- (void)updateView {
+    NSLog(@"Redrawing");
+    NSInteger height = [TLAmtrakStatusView rowHeight] * ([trains count] + 1);
+    [self setFrame:NSMakeRect(0, 0, 240, height)];
 
-        NSView *view = [[NSView alloc] initWithFrame:[self frame]];
+    NSView *view = [[NSView alloc] initWithFrame:[self frame]];
 
-        NSInteger max = [trainData count];
-        NSString *preferredTrain = [[NSUserDefaults standardUserDefaults] objectForKey:@"preferredTrain"];
+    NSInteger max = [trains count];
+    NSString *preferredTrain = [[NSUserDefaults standardUserDefaults] objectForKey:@"preferredTrain"];
 
-        for (int i = 0; i < max; i++) {
-            TLTrain *train = [trainData objectAtIndex:i];
-            NSColor *color;
-            if ([preferredTrain isEqualToString:train.number]) {
-                color = [NSColor colorWithSRGBRed:0 green:0 blue:100 alpha:.1];
-            } else {
-                color = [[NSColor controlAlternatingRowBackgroundColors] objectAtIndex:(i + 1) % 2];
-            }
-            TLTrainListItemView *tLIV = [[TLTrainListItemView alloc] initWithIndex:(max - i - 1)
-                                                                          andTrain:train
-                                                                          andColor:color];
-            [view addSubview:tLIV];
+    for (int i = 0; i < max; i++) {
+        TLTrain *train = [trains objectAtIndex:i];
+        NSColor *color;
+        if ([preferredTrain isEqualToString:train.number]) {
+            color = [NSColor selectedTextBackgroundColor];
+        } else {
+            color = [[NSColor controlAlternatingRowBackgroundColors] objectAtIndex:(i + 1) % 2];
         }
+        TLTrainListItemView *tLIV = [[TLTrainListItemView alloc] initWithIndex:(max - i - 1)
+                                                                      andTrain:train
+                                                                      andColor:color];
+        [view addSubview:tLIV];
+    }
 
-        TLTrainListItemView *headerView = [[TLTrainListItemView alloc] initWithIndex:max
-                                                                            andTrain:header
-                                                                            andColor:[NSColor whiteColor]];
+    TLTrainListItemView *headerView = [[TLTrainListItemView alloc] initWithIndex:max
+                                                                        andTrain:header
+                                                                        andColor:[NSColor whiteColor]];
 
-        [view addSubview:headerView];
-        [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-        [self addSubview:view];
+    [view addSubview:headerView];
+    [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    [self addSubview:view];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"preferredTrain"]) {
+        [self updateView];
     }
 }
 
