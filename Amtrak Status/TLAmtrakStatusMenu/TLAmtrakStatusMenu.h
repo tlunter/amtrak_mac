@@ -14,7 +14,7 @@
 - (void)setView:(NSView *)view;
 - (void)setTrainData:(NSArray*)trains withPreferredTrain:(NSString *)preferredTrain;
 - (void)openPreferences:(id)sender;
-- (void)checkForUpdates:(id)sender;
+- (void)checkForUpdate:(id)sender;
 - (void)quitApp:(id)sender;
 
 @property NSStatusItem *statusItem;
