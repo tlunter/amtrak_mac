@@ -37,6 +37,14 @@
     }
 }
 
+- (NSOperatingSystemVersion)yosemite {
+    NSOperatingSystemVersion os;
+    os.majorVersion = 10;
+    os.minorVersion = 10;
+    os.patchVersion = 0;
+    return os;
+}
+
 - (void)updateView {
     NSLog(@"Redrawing");
     NSInteger height = [TLAmtrakStatusView rowHeight] * ([trains count] + 1);
@@ -53,7 +61,11 @@
         if ([preferredTrain isEqualToString:train.number]) {
             color = [NSColor selectedTextBackgroundColor];
         } else {
-            color = [[NSColor controlAlternatingRowBackgroundColors] objectAtIndex:(i + 1) % 2];
+            if ([[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:[self yosemite]]) {
+                color = [NSColor clearColor];
+            } else {
+                color = [[NSColor controlAlternatingRowBackgroundColors] objectAtIndex:(i + 1) % 2];
+            }
         }
         TLTrainListItemView *tLIV = [[TLTrainListItemView alloc] initWithIndex:(max - i - 1)
                                                                       andTrain:train
@@ -61,9 +73,16 @@
         [view addSubview:tLIV];
     }
 
+    NSColor *headerColor;
+    if ([[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:[self yosemite]]) {
+        headerColor = [NSColor clearColor];
+    } else {
+        headerColor = [NSColor whiteColor];
+    }
+
     TLTrainListItemView *headerView = [[TLTrainListItemView alloc] initWithIndex:max
                                                                         andTrain:header
-                                                                        andColor:[NSColor whiteColor]];
+                                                                        andColor:headerColor];
 
     [view addSubview:headerView];
     [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
@@ -74,10 +93,6 @@
     if ([keyPath isEqualToString:@"preferredTrain"]) {
         [self updateView];
     }
-}
-
-- (void)drawRect:(NSRect)dirtyRect {
-    [super drawRect:dirtyRect];
 }
 
 @end
