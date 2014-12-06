@@ -48,6 +48,7 @@
 		3AC026D31981AE9700AEDAE9 /* Amtrak_StatusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC026D21981AE9700AEDAE9 /* Amtrak_StatusTests.m */; };
 		3AC026DF1981C2D100AEDAE9 /* TLAmtrakStatusMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC026DE1981C2D100AEDAE9 /* TLAmtrakStatusMenu.m */; };
 		3AC026EA1981CE6100AEDAE9 /* TLAmtrakStatusGrabber.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AC026E91981CE6100AEDAE9 /* TLAmtrakStatusGrabber.m */; };
+		3AF02C6E1A33730500DDDB21 /* NSProcessInfo+PECocoaBackports.m in Sources */ = {isa = PBXBuildFile; fileRef = 3AF02C6D1A33730500DDDB21 /* NSProcessInfo+PECocoaBackports.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,6 +173,9 @@
 		3AC026DE1981C2D100AEDAE9 /* TLAmtrakStatusMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TLAmtrakStatusMenu.m; path = TLAmtrakStatusMenu/TLAmtrakStatusMenu.m; sourceTree = "<group>"; };
 		3AC026E81981CE6100AEDAE9 /* TLAmtrakStatusGrabber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TLAmtrakStatusGrabber.h; path = TLAmtrakStatusGrabber/TLAmtrakStatusGrabber.h; sourceTree = "<group>"; };
 		3AC026E91981CE6100AEDAE9 /* TLAmtrakStatusGrabber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TLAmtrakStatusGrabber.m; path = TLAmtrakStatusGrabber/TLAmtrakStatusGrabber.m; sourceTree = "<group>"; };
+		3AF02C6C1A3372E900DDDB21 /* NSProcessInfo+PECocoaBackports.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSProcessInfo+PECocoaBackports.h"; path = "NSProcessInfo+PECocoaBackports/NSProcessInfo+PECocoaBackports.h"; sourceTree = "<group>"; };
+		3AF02C6D1A33730500DDDB21 /* NSProcessInfo+PECocoaBackports.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSProcessInfo+PECocoaBackports.m"; path = "NSProcessInfo+PECocoaBackports/NSProcessInfo+PECocoaBackports.m"; sourceTree = "<group>"; };
+		3AF02C701A33734100DDDB21 /* PECocoaBackportsGlobal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PECocoaBackportsGlobal.h; path = PECocoaBackportsGlobal/PECocoaBackportsGlobal.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -385,6 +389,8 @@
 		3AC026AE1981AE9700AEDAE9 /* Amtrak Status */ = {
 			isa = PBXGroup;
 			children = (
+				3AF02C6F1A33732700DDDB21 /* PECocoaBackportsGlobal */,
+				3AF02C671A33729300DDDB21 /* NSProcessInfo+PECocoaBackports */,
 				3AA1550B199AC2C300917EED /* TLAppDelegate */,
 				3A1B2A7F19832EF900EB2C05 /* MainMenu.xib */,
 				3AC026C01981AE9700AEDAE9 /* Images.xcassets */,
@@ -451,6 +457,23 @@
 				3AC026E91981CE6100AEDAE9 /* TLAmtrakStatusGrabber.m */,
 			);
 			name = TLAmtrakStatusGrabber;
+			sourceTree = "<group>";
+		};
+		3AF02C671A33729300DDDB21 /* NSProcessInfo+PECocoaBackports */ = {
+			isa = PBXGroup;
+			children = (
+				3AF02C6D1A33730500DDDB21 /* NSProcessInfo+PECocoaBackports.m */,
+				3AF02C6C1A3372E900DDDB21 /* NSProcessInfo+PECocoaBackports.h */,
+			);
+			name = "NSProcessInfo+PECocoaBackports";
+			sourceTree = "<group>";
+		};
+		3AF02C6F1A33732700DDDB21 /* PECocoaBackportsGlobal */ = {
+			isa = PBXGroup;
+			children = (
+				3AF02C701A33734100DDDB21 /* PECocoaBackportsGlobal.h */,
+			);
+			name = PECocoaBackportsGlobal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -603,6 +626,7 @@
 				3A64C39D198725E500053DC7 /* TLTrainListItemScheduledView.m in Sources */,
 				3A64C3A1198725FF00053DC7 /* TLTrainListItemEstimatedView.m in Sources */,
 				3A2F05DD198C422A00237226 /* UNIBaseRequest.m in Sources */,
+				3AF02C6E1A33730500DDDB21 /* NSProcessInfo+PECocoaBackports.m in Sources */,
 				3AC026EA1981CE6100AEDAE9 /* TLAmtrakStatusGrabber.m in Sources */,
 				3A2F05E3198C422A00237226 /* UNIHTTPStringResponse.m in Sources */,
 			);

@@ -10,22 +10,26 @@
 	<string>Amtrak Status</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>66CFBB08CFA5B1D0516D8FACBA913CC12EA03757</key>
+		<string>github.com:tlunter/AmtrakStatus.git</string>
 		<key>C15FC9E9-E201-4049-AD9D-52230D84019A</key>
 		<string>ssh://github.com/tlunter/AmtrakStatus.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Amtrak Status.xcodeproj/project.xcworkspace</string>
+	<string>Amtrak Status.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>C15FC9E9-E201-4049-AD9D-52230D84019A</key>
+		<key>66CFBB08CFA5B1D0516D8FACBA913CC12EA03757</key>
 		<string>../..</string>
+		<key>C15FC9E9-E201-4049-AD9D-52230D84019A</key>
+		<string>../../../Amtrak Status</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/tlunter/AmtrakStatus.git</string>
+	<string>github.com:tlunter/AmtrakStatus.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>C15FC9E9-E201-4049-AD9D-52230D84019A</string>
+	<string>66CFBB08CFA5B1D0516D8FACBA913CC12EA03757</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
@@ -35,6 +39,14 @@
 			<string>C15FC9E9-E201-4049-AD9D-52230D84019A</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Amtrak Status</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>66CFBB08CFA5B1D0516D8FACBA913CC12EA03757</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Amtrak%20Status</string>
 		</dict>
 	</array>
 </dict>

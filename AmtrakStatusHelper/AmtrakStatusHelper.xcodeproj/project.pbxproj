@@ -471,6 +471,7 @@
 				3A1DD0D519A81D61004C038C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3A1DD0D619A81D61004C038C /* Build configuration list for PBXNativeTarget "AmtrakStatusHelperTests" */ = {
 			isa = XCConfigurationList;
@@ -479,6 +480,7 @@
 				3A1DD0D819A81D61004C038C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
