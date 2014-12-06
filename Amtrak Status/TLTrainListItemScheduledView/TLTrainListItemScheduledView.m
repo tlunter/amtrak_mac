@@ -12,11 +12,11 @@
 @implementation TLTrainListItemScheduledView
 
 - (CGFloat)width {
-    return 117.5;
+    return 75.0;
 }
 
 - (CGFloat)leftOffset {
-    return 34.0;
+    return 65.0;
 }
 
 @end

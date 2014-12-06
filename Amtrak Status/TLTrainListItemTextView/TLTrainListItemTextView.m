@@ -36,15 +36,15 @@
 
     self = [super initWithFrame:frame];
     if (self) {
-        [self setString:text];
+        NSTextField *label = [[NSTextField alloc] initWithFrame:[self bounds]];
+        [label setStringValue:text];
+        [label setEditable:false];
+        [label setBordered:false];
+        [label setFont:[NSFont systemFontOfSize:14.0]];
+        [label setDrawsBackground:false];
+        [self addSubview:label];
     }
     return self;
-}
-- (void)drawRect:(NSRect)dirtyRect
-{
-    [string drawInRect:[self frame] withAttributes:[[NSDictionary alloc] initWithObjectsAndKeys:
-                                                    [NSFont systemFontOfSize:14.0], NSFontAttributeName,
-                                                    nil]];
 }
 
 @end

@@ -12,11 +12,11 @@
 @implementation TLTrainListItemEstimatedView
 
 - (CGFloat)width {
-    return 160.0;
+    return 75.0;
 }
 
 - (CGFloat)leftOffset {
-    return 74.5;
+    return 145.0;
 }
 
 @end
