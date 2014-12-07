@@ -19,7 +19,6 @@
 - (id)initWithTarget:(NSObject<TLAmtrakStatusGrabberDelegate>*)target;
 - (void)getAmtrakStatus;
 
-@property NSDateFormatter *dateFormatter;
 @property NSString *from;
 @property NSString *to;
 @property NSObject<TLAmtrakStatusGrabberDelegate>* target;
