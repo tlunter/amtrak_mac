@@ -72,6 +72,11 @@
             NSDate *estimated = [[TLAmtrakStatusMenu lateTimeFormatter] dateFromString:[train estimated]];
             NSTimeInterval timeDiff = [estimated timeIntervalSinceDate:scheduled];
             
+            BOOL showTimeInMenu = [[NSUserDefaults standardUserDefaults] boolForKey:@"showTimeInMenu"];
+            if (showTimeInMenu && timeDiff > 300) {
+                [statusItem setTitle:[train estimated]];
+            }
+
             if (timeDiff > 5400) {
                 [statusItem setImage:[NSImage imageNamed:@"AmtrakRed"]];
             } else if (timeDiff > 2700) {

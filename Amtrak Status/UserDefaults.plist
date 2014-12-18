@@ -6,6 +6,8 @@
 	<string>bby</string>
 	<key>preferredTrain</key>
 	<string></string>
+	<key>showTimeInMenu</key>
+	<integer>1</integer>
 	<key>from</key>
 	<string>pvd</string>
 	<key>autoStartup</key>

@@ -92,7 +92,8 @@
 
     if ([keyPath isEqualToString:@"from"] ||
         [keyPath isEqualToString:@"to"] ||
-        [keyPath isEqualToString:@"preferredTrain"]) {
+        [keyPath isEqualToString:@"preferredTrain"] ||
+        [keyPath isEqualToString:@"showTimeInMenu"]) {
         if ([[amtrakStatusGrabber from] length] >= 3 && [[amtrakStatusGrabber to] length] >= 3) {
             NSLog(@"Firing");
             [updateTimer fire];
