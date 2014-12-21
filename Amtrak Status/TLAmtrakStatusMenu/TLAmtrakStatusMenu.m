@@ -7,6 +7,7 @@
 //
 
 #import <Sparkle/Sparkle.h>
+#import <SVGKit/SVGKit.h>
 #import "TLTrain.h"
 #import "TLPreferencesWindowController.h"
 #import "TLAmtrakStatusMenu.h"
@@ -14,6 +15,7 @@
 @implementation TLAmtrakStatusMenu
 
 @synthesize statusItem, menu, preferencesButton, updatesButton, quitButton, preferencesWindowController;
+@synthesize svgIcon, blackIcon, yellowIcon, orangeIcon, redIcon, highlightIcon;
 
 + (NSDateFormatter *)lateTimeFormatter {
     NSDateFormatter *formatter = nil;
@@ -39,9 +41,28 @@
         
         [self setStatusItem:newStatusItem];
         
+        svgIcon = [SVGKImage imageNamed:@"amtrak-24.svg"];
+        
+        SVGKNode *fill = [[[svgIcon.DOMTree.childNodes objectAtIndexedSubscript:7].childNodes objectAtIndexedSubscript:1].attributes getNamedItem:@"fill"];
+        
+        [fill setValue:@"#ffffff"];
+        
+        [[[svgIcon.DOMTree.childNodes objectAtIndexedSubscript:7].childNodes objectAtIndexedSubscript:1].attributes setNamedItemNS:fill inNodeNamespace:@"http://www.w3.org/2000/svg"];
+        
+        NSLog(@"%@", [[svgIcon.DOMTree.childNodes objectAtIndexedSubscript:7].childNodes objectAtIndexedSubscript:1].attributes);
+        
+        blackIcon = svgIcon.NSImage;
+        
+        yellowIcon = [NSImage imageNamed:@"AmtrakYellow"];
+        orangeIcon = [NSImage imageNamed:@"AmtrakOrange"];
+        redIcon = [NSImage imageNamed:@"AmtrakRed"];
+        
+        highlightIcon = [NSImage imageNamed:@"AmtrakHighlighted"];
+        
         [statusItem setMenu:menu];
-        [statusItem setImage:[NSImage imageNamed:@"AmtrakBlack"]];
-        [statusItem setAlternateImage:[NSImage imageNamed:@"AmtrakHighlighted"]];
+        
+        [statusItem setImage:blackIcon];
+        [statusItem setAlternateImage:highlightIcon];
         [statusItem setHighlightMode:YES];
     }
     return self;
@@ -73,16 +94,16 @@
             NSTimeInterval timeDiff = [estimated timeIntervalSinceDate:scheduled];
             
             if (timeDiff > 5400) {
-                [statusItem setImage:[NSImage imageNamed:@"AmtrakRed"]];
+                [statusItem setImage:redIcon];
             } else if (timeDiff > 2700) {
-                [statusItem setImage:[NSImage imageNamed:@"AmtrakOrange"]];
+                [statusItem setImage:orangeIcon];
             } else if (timeDiff > 900) {
-                [statusItem setImage:[NSImage imageNamed:@"AmtrakYellow"]];
+                [statusItem setImage:yellowIcon];
             } else {
-                [statusItem setImage:[NSImage imageNamed:@"AmtrakBlack"]];
+                [statusItem setImage:blackIcon];
             }
         } else {
-            [statusItem setImage:[NSImage imageNamed:@"AmtrakBlack"]];
+            [statusItem setImage:blackIcon];
         }
     }
 }

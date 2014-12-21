@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+@class SVGKImage;
+
 @interface TLAmtrakStatusMenu : NSObject
 
 - (id)initWithStatusItem:(NSStatusItem*)newStatusItem;
@@ -22,6 +24,12 @@
 @property NSMenuItem *preferencesButton;
 @property NSMenuItem *updatesButton;
 @property NSMenuItem *quitButton;
+@property SVGKImage *svgIcon;
+@property NSImage *blackIcon;
+@property NSImage *yellowIcon;
+@property NSImage *orangeIcon;
+@property NSImage *redIcon;
+@property NSImage *highlightIcon;
 @property TLPreferencesWindowController *preferencesWindowController;
 
 @end
