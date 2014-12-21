@@ -58,7 +58,8 @@
     [menu addItem:quitButton];
 }
 
-- (void)setTrainData:(NSArray*)trains withPreferredTrain:(NSString *)preferredTrain {
+- (void)setTrainData:(NSArray*)trains {
+    NSString *preferredTrain = [[NSUserDefaults standardUserDefaults] objectForKey:@"preferredTrain"];
     if ([preferredTrain length] > 0) {
         TLTrain *train = nil;
         for (TLTrain *t in trains) {
@@ -73,8 +74,11 @@
             NSTimeInterval timeDiff = [estimated timeIntervalSinceDate:scheduled];
             
             BOOL showTimeInMenu = [[NSUserDefaults standardUserDefaults] boolForKey:@"showTimeInMenu"];
-            if (showTimeInMenu && timeDiff > 300) {
-                [statusItem setTitle:[train estimated]];
+            if (showTimeInMenu) {
+                if (timeDiff > 300)
+                    [statusItem setTitle:[train estimated]];
+            } else {
+                [statusItem setTitle:@""];
             }
 
             if (timeDiff > 5400) {
@@ -88,7 +92,10 @@
             }
         } else {
             [statusItem setImage:[NSImage imageNamed:@"AmtrakBlack"]];
+            [statusItem setTitle:@""];
         }
+    } else {
+        [statusItem setTitle:@""];
     }
 }
 
