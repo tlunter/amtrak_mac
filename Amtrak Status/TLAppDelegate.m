@@ -52,6 +52,9 @@
     [[NSUserDefaults standardUserDefaults]
      addObserver:self forKeyPath:@"preferredTrain"
      options:NSKeyValueObservingOptionNew context:NULL];
+    [[NSUserDefaults standardUserDefaults]
+     addObserver:self forKeyPath:@"showTimeInMenu"
+     options:NSKeyValueObservingOptionNew context:NULL];
 }
 
 - (void)buildMenu {
@@ -64,6 +67,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     [self setUpDefaultSettings];
+    self.trainData = @[];
     [self buildMenuItemView];
 
     amtrakStatusGrabber = [[TLAmtrakStatusGrabber alloc] initWithTarget:self];
@@ -81,7 +85,7 @@
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    NSLog(@"Updating");
+    NSLog(@"Updating defaults");
     if ([keyPath isEqualToString:@"from"]) {
         [amtrakStatusGrabber setFrom:[change objectForKey:NSKeyValueChangeNewKey]];
     }
@@ -92,19 +96,28 @@
 
     if ([keyPath isEqualToString:@"from"] ||
         [keyPath isEqualToString:@"to"] ||
-        [keyPath isEqualToString:@"preferredTrain"]) {
+        [keyPath isEqualToString:@"preferredTrain"] ||
+        [keyPath isEqualToString:@"showTimeInMenu"]) {
         if ([[amtrakStatusGrabber from] length] >= 3 && [[amtrakStatusGrabber to] length] >= 3) {
-            NSLog(@"Firing");
-            [updateTimer fire];
+            NSLog(@"Firing (changes are valid)");
+            [self redraw];
         }
+    } else {
+        NSLog(@"Changed keyPath `%@`, not redrawing", keyPath);
     }
 }
 
 - (void)updateData:(NSArray*)trains {
+    NSLog(@"Updating train data");
+    self.trainData = trains;
+    [self redraw];
+}
+
+- (void)redraw {
+    NSLog(@"Redrawing everything");
     @autoreleasepool {
-        [amtrakStatusMenu setTrainData:trains
-                    withPreferredTrain:[[NSUserDefaults standardUserDefaults] objectForKey:@"preferredTrain"]];
-        [amtrakStatusView setTrainData:trains];
+        [amtrakStatusMenu setTrainData:self.trainData];
+        [amtrakStatusView setTrainData:self.trainData];
     }
 }
 

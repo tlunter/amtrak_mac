@@ -12,7 +12,7 @@
 
 - (id)initWithStatusItem:(NSStatusItem*)newStatusItem;
 - (void)setView:(NSView *)view;
-- (void)setTrainData:(NSArray*)trains withPreferredTrain:(NSString *)preferredTrain;
+- (void)setTrainData:(NSArray*)trains;
 - (void)openPreferences:(id)sender;
 - (void)checkForUpdate:(id)sender;
 - (void)quitApp:(id)sender;
