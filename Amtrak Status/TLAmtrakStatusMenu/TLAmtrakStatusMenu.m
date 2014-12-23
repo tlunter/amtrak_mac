@@ -73,10 +73,14 @@
             NSDate *estimated = [[TLAmtrakStatusMenu lateTimeFormatter] dateFromString:[train estimated]];
             NSTimeInterval timeDiff = [estimated timeIntervalSinceDate:scheduled];
             
-            BOOL showTimeInMenu = [[NSUserDefaults standardUserDefaults] boolForKey:@"showTimeInMenu"];
-            if (showTimeInMenu) {
-                if (timeDiff > 300)
-                    [statusItem setTitle:[train estimated]];
+            NSInteger showTimeInMenu = [[NSUserDefaults standardUserDefaults] integerForKey:@"showTimeInMenu"];
+            // Always
+            if (showTimeInMenu == 2) {
+                [statusItem setTitle:[train estimated]];
+            // When later than 5 minutes
+            } else if (showTimeInMenu == 1 && timeDiff > 300) {
+                [statusItem setTitle:[train estimated]];
+            // Never
             } else {
                 [statusItem setTitle:@""];
             }

@@ -52,6 +52,9 @@
     [[NSUserDefaults standardUserDefaults]
      addObserver:self forKeyPath:@"preferredTrain"
      options:NSKeyValueObservingOptionNew context:NULL];
+    [[NSUserDefaults standardUserDefaults]
+     addObserver:self forKeyPath:@"showTimeInMenu"
+     options:NSKeyValueObservingOptionNew context:NULL];
 }
 
 - (void)buildMenu {
@@ -99,6 +102,8 @@
             NSLog(@"Firing (changes are valid)");
             [self redraw];
         }
+    } else {
+        NSLog(@"Changed keyPath `%@`, not redrawing", keyPath);
     }
 }
 
