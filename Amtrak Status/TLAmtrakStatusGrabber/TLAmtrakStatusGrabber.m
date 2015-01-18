@@ -26,7 +26,8 @@
 
 - (void)loadAmtrakPage {
     UNIHTTPBinaryResponse *response = [[UNIRest get:^(UNISimpleRequest *request) {
-        [request setUrl:@"http://amtrak_endpoint.tlunter.com/pvd/bby.json"];
+        [request setUrl:
+         [NSString stringWithFormat:@"http://amtrak.tlunter.com/%@/%@.json", self.from, self.to]];
     }] asBinary];
     [self parseTrainData:[response rawBody]];
 }
