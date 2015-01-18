@@ -14,6 +14,7 @@
 		3A1DD09619A80318004C038C /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 3A1DD09519A80318004C038C /* dsa_pub.pem */; };
 		3A1DD0E519A81DEA004C038C /* AmtrakStatusHelper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3A1DD0DF19A81D62004C038C /* AmtrakStatusHelper.app */; };
 		3A1DD0E619A81E3D004C038C /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A1DD09719A81901004C038C /* ServiceManagement.framework */; };
+		3A224BFB1A5C8FCF009992BD /* TLOperatingSystemVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A224BFA1A5C8FCF009992BD /* TLOperatingSystemVersion.m */; };
 		3A2F05DC198C422A00237226 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F05BE198C422A00237226 /* Base64.m */; };
 		3A2F05DD198C422A00237226 /* UNIBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F05C1198C422A00237226 /* UNIBaseRequest.m */; };
 		3A2F05DE198C422A00237226 /* UNIBodyRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F05C3198C422A00237226 /* UNIBodyRequest.m */; };
@@ -107,6 +108,8 @@
 		3A1DD09519A80318004C038C /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		3A1DD09719A81901004C038C /* ServiceManagement.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ServiceManagement.framework; path = System/Library/Frameworks/ServiceManagement.framework; sourceTree = SDKROOT; };
 		3A1DD0D919A81D61004C038C /* AmtrakStatusHelper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AmtrakStatusHelper.xcodeproj; path = AmtrakStatusHelper/AmtrakStatusHelper.xcodeproj; sourceTree = "<group>"; };
+		3A224BF91A5C8FCF009992BD /* TLOperatingSystemVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TLOperatingSystemVersion.h; path = TLOperatingSystemVersion/TLOperatingSystemVersion.h; sourceTree = "<group>"; };
+		3A224BFA1A5C8FCF009992BD /* TLOperatingSystemVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TLOperatingSystemVersion.m; path = TLOperatingSystemVersion/TLOperatingSystemVersion.m; sourceTree = "<group>"; };
 		3A2F05BD198C422A00237226 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
 		3A2F05BE198C422A00237226 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
 		3A2F05C0198C422A00237226 /* UNIBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UNIBaseRequest.h; sourceTree = "<group>"; };
@@ -217,6 +220,15 @@
 				3A1DD0E119A81D62004C038C /* AmtrakStatusHelperTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		3A224BFE1A5C8FD5009992BD /* TLOperatingSystemVersion */ = {
+			isa = PBXGroup;
+			children = (
+				3A224BF91A5C8FCF009992BD /* TLOperatingSystemVersion.h */,
+				3A224BFA1A5C8FCF009992BD /* TLOperatingSystemVersion.m */,
+			);
+			name = TLOperatingSystemVersion;
 			sourceTree = "<group>";
 		};
 		3A2F05BC198C422A00237226 /* Unirest */ = {
@@ -405,6 +417,7 @@
 				3A64C3A21987260200053DC7 /* TLTrainListItemEstimatedView */,
 				3A2F05ED198C4B8800237226 /* TLPreferencesWindowController */,
 				3A5D5A2A199967EE00F179B8 /* TLTrain */,
+				3A224BFE1A5C8FD5009992BD /* TLOperatingSystemVersion */,
 			);
 			path = "Amtrak Status";
 			sourceTree = "<group>";
@@ -611,6 +624,7 @@
 				3AC026DF1981C2D100AEDAE9 /* TLAmtrakStatusMenu.m in Sources */,
 				3A2F05E4198C422A00237226 /* UNIJsonNode.m in Sources */,
 				3A2F05EC198C479400237226 /* TLPreferencesWindowController.m in Sources */,
+				3A224BFB1A5C8FCF009992BD /* TLOperatingSystemVersion.m in Sources */,
 				3A2F05E7198C422A00237226 /* UNIHTTPRequestWithBody.m in Sources */,
 				3A2F05E6198C422A00237226 /* UNIHTTPRequest.m in Sources */,
 				3A2F05F0198EC2D700237226 /* TLTrainListItemTextView.m in Sources */,
