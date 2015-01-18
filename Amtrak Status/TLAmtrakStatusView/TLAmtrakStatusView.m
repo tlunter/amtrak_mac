@@ -8,6 +8,7 @@
 
 #import "TLTrain.h"
 #import "TLTrainListItemView.h"
+#import "TLOperatingSystemVersion.h"
 #import "TLAmtrakStatusView.h"
 
 @implementation TLAmtrakStatusView
@@ -37,14 +38,6 @@
     }
 }
 
-- (NSOperatingSystemVersion)yosemite {
-    NSOperatingSystemVersion os;
-    os.majorVersion = 10;
-    os.minorVersion = 10;
-    os.patchVersion = 0;
-    return os;
-}
-
 - (void)updateView {
     NSLog(@"Redrawing");
     NSInteger height = [TLAmtrakStatusView rowHeight] * ([trains count] + 1);
@@ -61,7 +54,7 @@
         if ([preferredTrain isEqualToString:train.number]) {
             color = [NSColor selectedTextBackgroundColor];
         } else {
-            if ([[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:[self yosemite]]) {
+            if ([[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:[TLOperatingSystemVersion yosemite]]) {
                 color = [NSColor clearColor];
             } else {
                 color = [[NSColor controlAlternatingRowBackgroundColors] objectAtIndex:(i + 1) % 2];
@@ -74,7 +67,7 @@
     }
 
     NSColor *headerColor;
-    if ([[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:[self yosemite]]) {
+    if ([[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:[TLOperatingSystemVersion yosemite]]) {
         headerColor = [NSColor clearColor];
     } else {
         headerColor = [NSColor whiteColor];
