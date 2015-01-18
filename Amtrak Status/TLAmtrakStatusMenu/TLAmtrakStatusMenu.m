@@ -82,11 +82,9 @@
 
             NSInteger showTimeInMenu = [[NSUserDefaults standardUserDefaults] integerForKey:@"showTimeInMenu"];
             // Always
-            if (showTimeInMenu == 2) {
-                [self setTitle:[train estimated]];
-                return;
+            // OR
             // When later than 5 minutes
-            } else if (showTimeInMenu == 1 && timeDiff > 300) {
+            if (showTimeInMenu == 2 || (showTimeInMenu == 1 && timeDiff > 300)) {
                 [self setTitle:[train estimated]];
                 return;
             }
