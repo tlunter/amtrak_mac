@@ -85,8 +85,11 @@
             // OR
             // When later than 5 minutes
             if (showTimeInMenu == 2 || (showTimeInMenu == 1 && timeDiff > 300)) {
-                [self setTitle:[train estimated]];
-                return;
+                NSString *estimated = [[train estimated] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+                if ([estimated length] > 0) {
+                    [self setTitle: estimated];
+                    return;
+                }
             }
         }
     }
