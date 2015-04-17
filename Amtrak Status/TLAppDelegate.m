@@ -79,9 +79,18 @@
     [amtrakStatusGrabber setFrom:
      [[NSUserDefaults standardUserDefaults] objectForKey:@"from"]];
 
+    [[NSDistributedNotificationCenter defaultCenter]
+     addObserver: self selector:@selector(themeChanged:)
+     name: @"AppleInterfaceThemeChangedNotification" object:nil];
+
     [self buildMenu];
 
     [self startGrabber];
+}
+
+- (void)themeChanged:(NSNotification*)notif {
+    NSLog(@"Theme changed");
+    [self.amtrakStatusView updateView];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {

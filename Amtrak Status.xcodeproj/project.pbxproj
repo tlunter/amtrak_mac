@@ -10,7 +10,7 @@
 		3A1B2A8019832EF900EB2C05 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A1B2A7F19832EF900EB2C05 /* MainMenu.xib */; };
 		3A1B2AC519833D0600EB2C05 /* TLAmtrakStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1B2AC419833D0600EB2C05 /* TLAmtrakStatusView.m */; };
 		3A1DD09219A7F98A004C038C /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A1DD09119A7F98A004C038C /* Sparkle.framework */; };
-		3A1DD09419A7FB26004C038C /* Sparkle.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 3A1DD09119A7F98A004C038C /* Sparkle.framework */; };
+		3A1DD09419A7FB26004C038C /* Sparkle.framework in Copy Files */ = {isa = PBXBuildFile; fileRef = 3A1DD09119A7F98A004C038C /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		3A1DD09619A80318004C038C /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 3A1DD09519A80318004C038C /* dsa_pub.pem */; };
 		3A1DD0E519A81DEA004C038C /* AmtrakStatusHelper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3A1DD0DF19A81D62004C038C /* AmtrakStatusHelper.app */; };
 		3A1DD0E619A81E3D004C038C /* ServiceManagement.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A1DD09719A81901004C038C /* ServiceManagement.framework */; };
@@ -536,7 +536,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = TL;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = "___FULLUSERNAME___";
 				TargetAttributes = {
 					3AC026C51981AE9700AEDAE9 = {

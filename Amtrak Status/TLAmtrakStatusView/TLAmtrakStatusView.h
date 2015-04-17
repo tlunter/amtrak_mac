@@ -12,6 +12,7 @@
 
 + (NSInteger)rowHeight;
 - (void)setTrainData:(NSArray *)trainData;
+- (void)updateView;
 
 @property TLTrain *header;
 @property NSArray *trains;

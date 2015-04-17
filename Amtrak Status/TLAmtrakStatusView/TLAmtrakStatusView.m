@@ -50,19 +50,24 @@
 
     for (int i = 0; i < max; i++) {
         TLTrain *train = [trains objectAtIndex:i];
-        NSColor *color;
+        NSColor *backgroundColor;
         if ([preferredTrain isEqualToString:train.number]) {
-            color = [NSColor selectedTextBackgroundColor];
+            NSString *osxMode = [[NSUserDefaults standardUserDefaults] stringForKey:@"AppleInterfaceStyle"];
+            if ([@"dark" caseInsensitiveCompare:osxMode] == NSOrderedSame) {
+                backgroundColor = [NSColor tertiaryLabelColor];
+            } else {
+                backgroundColor = [NSColor selectedTextBackgroundColor];
+            }
         } else {
             if ([[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:[TLOperatingSystemVersion yosemite]]) {
-                color = [NSColor clearColor];
+                backgroundColor = [NSColor clearColor];
             } else {
-                color = [[NSColor controlAlternatingRowBackgroundColors] objectAtIndex:(i + 1) % 2];
+                backgroundColor = [[NSColor controlAlternatingRowBackgroundColors] objectAtIndex:(i + 1) % 2];
             }
         }
         TLTrainListItemView *tLIV = [[TLTrainListItemView alloc] initWithIndex:(max - i - 1)
                                                                       andTrain:train
-                                                                      andColor:color];
+                                                                      andColor:backgroundColor];
         [view addSubview:tLIV];
     }
 
