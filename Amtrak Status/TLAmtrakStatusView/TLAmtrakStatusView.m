@@ -8,6 +8,7 @@
 
 #import "TLTrain.h"
 #import "TLTrainListItemView.h"
+#import "TLOperatingSystemVersion.h"
 #import "TLAmtrakStatusView.h"
 
 @implementation TLAmtrakStatusView
@@ -37,14 +38,6 @@
     }
 }
 
-- (NSOperatingSystemVersion)yosemite {
-    NSOperatingSystemVersion os;
-    os.majorVersion = 10;
-    os.minorVersion = 10;
-    os.patchVersion = 0;
-    return os;
-}
-
 - (void)updateView {
     NSLog(@"Redrawing");
     NSInteger height = [TLAmtrakStatusView rowHeight] * ([trains count] + 1);
@@ -57,24 +50,29 @@
 
     for (int i = 0; i < max; i++) {
         TLTrain *train = [trains objectAtIndex:i];
-        NSColor *color;
+        NSColor *backgroundColor;
         if ([preferredTrain isEqualToString:train.number]) {
-            color = [NSColor selectedTextBackgroundColor];
-        } else {
-            if ([[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:[self yosemite]]) {
-                color = [NSColor clearColor];
+            NSString *osxMode = [[NSUserDefaults standardUserDefaults] stringForKey:@"AppleInterfaceStyle"];
+            if ([@"dark" caseInsensitiveCompare:osxMode] == NSOrderedSame) {
+                backgroundColor = [NSColor tertiaryLabelColor];
             } else {
-                color = [[NSColor controlAlternatingRowBackgroundColors] objectAtIndex:(i + 1) % 2];
+                backgroundColor = [NSColor selectedTextBackgroundColor];
+            }
+        } else {
+            if ([[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:[TLOperatingSystemVersion yosemite]]) {
+                backgroundColor = [NSColor clearColor];
+            } else {
+                backgroundColor = [[NSColor controlAlternatingRowBackgroundColors] objectAtIndex:(i + 1) % 2];
             }
         }
         TLTrainListItemView *tLIV = [[TLTrainListItemView alloc] initWithIndex:(max - i - 1)
                                                                       andTrain:train
-                                                                      andColor:color];
+                                                                      andColor:backgroundColor];
         [view addSubview:tLIV];
     }
 
     NSColor *headerColor;
-    if ([[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:[self yosemite]]) {
+    if ([[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:[TLOperatingSystemVersion yosemite]]) {
         headerColor = [NSColor clearColor];
     } else {
         headerColor = [NSColor whiteColor];

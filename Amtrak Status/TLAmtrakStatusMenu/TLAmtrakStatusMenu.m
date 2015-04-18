@@ -9,6 +9,7 @@
 #import <Sparkle/Sparkle.h>
 #import "TLTrain.h"
 #import "TLPreferencesWindowController.h"
+#import "TLOperatingSystemVersion.h"
 #import "TLAmtrakStatusMenu.h"
 
 @implementation TLAmtrakStatusMenu
@@ -36,13 +37,19 @@
         [preferencesButton setTarget:self];
         [self setUpdatesButton:[[NSMenuItem alloc] initWithTitle:@"Check for Updates" action:@selector(checkForUpdate:) keyEquivalent:@""]];
         [updatesButton setTarget:self];
-        
+
         [self setStatusItem:newStatusItem];
-        
+
         [statusItem setMenu:menu];
-        [statusItem setImage:[NSImage imageNamed:@"AmtrakBlack"]];
-        [statusItem setAlternateImage:[NSImage imageNamed:@"AmtrakHighlighted"]];
-        [statusItem setHighlightMode:YES];
+        NSImage *amtrakTemplate = [NSImage imageNamed:@"AmtrakTemplate"];
+        [amtrakTemplate setTemplate:YES];
+        [self setImage:amtrakTemplate];
+        [self setTitle:nil];
+        if ([[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:[TLOperatingSystemVersion yosemite]]) {
+            [statusItem.button setImagePosition:NSImageLeft];
+        } else {
+            [statusItem setHighlightMode:YES];
+        }
     }
     return self;
 }
@@ -72,34 +79,39 @@
             NSDate *scheduled = [[TLAmtrakStatusMenu lateTimeFormatter] dateFromString:[train scheduled]];
             NSDate *estimated = [[TLAmtrakStatusMenu lateTimeFormatter] dateFromString:[train estimated]];
             NSTimeInterval timeDiff = [estimated timeIntervalSinceDate:scheduled];
-            
+
             NSInteger showTimeInMenu = [[NSUserDefaults standardUserDefaults] integerForKey:@"showTimeInMenu"];
             // Always
-            if (showTimeInMenu == 2) {
-                [statusItem setTitle:[train estimated]];
+            // OR
             // When later than 5 minutes
-            } else if (showTimeInMenu == 1 && timeDiff > 300) {
-                [statusItem setTitle:[train estimated]];
-            // Never
-            } else {
-                [statusItem setTitle:@""];
+            if (showTimeInMenu == 2 || (showTimeInMenu == 1 && timeDiff > 300)) {
+                NSString *estimated = [[train estimated] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+                if ([estimated length] > 0) {
+                    [self setTitle: estimated];
+                    return;
+                }
             }
-
-            if (timeDiff > 5400) {
-                [statusItem setImage:[NSImage imageNamed:@"AmtrakRed"]];
-            } else if (timeDiff > 2700) {
-                [statusItem setImage:[NSImage imageNamed:@"AmtrakOrange"]];
-            } else if (timeDiff > 900) {
-                [statusItem setImage:[NSImage imageNamed:@"AmtrakYellow"]];
-            } else {
-                [statusItem setImage:[NSImage imageNamed:@"AmtrakBlack"]];
-            }
-        } else {
-            [statusItem setImage:[NSImage imageNamed:@"AmtrakBlack"]];
-            [statusItem setTitle:@""];
         }
+    }
+
+    // Otherwise clear
+    [self setTitle:nil];
+}
+
+- (void)setTitle:(NSString *)title {
+    if ([[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:[TLOperatingSystemVersion yosemite]]) {
+        [statusItem.button setTitle:title];
+        [statusItem.button setAlternateTitle:title];
     } else {
-        [statusItem setTitle:@""];
+        [statusItem setTitle:title];
+    }
+}
+
+- (void)setImage:(NSImage *)image {
+    if ([[NSProcessInfo processInfo] isOperatingSystemAtLeastVersion:[TLOperatingSystemVersion yosemite]]) {
+        [statusItem.button setImage:image];
+    } else {
+        [statusItem setImage:image];
     }
 }
 
