@@ -49,9 +49,10 @@
     
     for (NSDictionary *rawTrain in trains) {
         TLTrain *train = [[TLTrain alloc] init];
-        [train setNumber:[[rawTrain valueForKeyPath:@"number"] stringValue]];
+        [train setNumber:[rawTrain valueForKeyPath:@"number"]];
         [train setScheduled:[rawTrain valueForKeyPath:@"departure.scheduled_time"]];
         [train setEstimated:[rawTrain valueForKeyPath:@"departure.estimated_time"]];
+        [train setPosted:[rawTrain valueForKeyPath:@"departure.posted_time"]];
         [trainData addObject:train];
     }
 

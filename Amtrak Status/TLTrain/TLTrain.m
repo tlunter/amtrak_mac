@@ -10,7 +10,7 @@
 
 @implementation TLTrain
 
-@synthesize number, scheduled, estimated;
+@synthesize number, scheduled, estimated, posted;
 
 - (BOOL)isEqualToTrain:(TLTrain *)other {
     if (!other) return NO;
@@ -18,8 +18,10 @@
     BOOL haveEqualNumbers = (!self.number && !other.number) || [self.number isEqualToString:other.number];
     BOOL haveEqualScheduled = (!self.scheduled && !other.scheduled) || [self.scheduled isEqualToString:other.scheduled];
     BOOL haveEqualEstimated = (!self.estimated && !other.estimated) || [self.estimated isEqualToString:other.estimated];
+    BOOL haveEqualPosteded = (!self.posted && !other.posted) || [self.posted isEqualToString:other.posted];
 
-    return haveEqualNumbers && haveEqualScheduled && haveEqualEstimated;
+
+    return haveEqualNumbers && haveEqualScheduled && haveEqualEstimated && haveEqualPosteded;
 }
 
 - (BOOL)isEqual:(id)object {
@@ -35,7 +37,7 @@
 }
 
 - (NSUInteger)hash {
-    return [self.number hash] ^ [self.scheduled hash] ^ [self.estimated hash];
+    return [self.number hash] ^ [self.scheduled hash] ^ [self.estimated hash] ^ [self.posted hash];
 }
 
 @end

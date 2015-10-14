@@ -13,5 +13,6 @@
 @property NSString *number;
 @property NSString *scheduled;
 @property NSString *estimated;
+@property NSString *posted;
 
 @end

@@ -37,7 +37,10 @@
     self = [super initWithFrame:frame];
     if (self) {
         NSTextField *label = [[NSTextField alloc] initWithFrame:[self bounds]];
-        [label setStringValue:text];
+        
+        if (text != (id)[NSNull null]) {
+            [label setStringValue:text];
+        }
         [label setEditable:false];
         [label setBordered:false];
         [label setFont:[NSFont systemFontOfSize:14.0]];

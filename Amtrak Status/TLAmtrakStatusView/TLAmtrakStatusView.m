@@ -50,6 +50,9 @@
 
     for (int i = 0; i < max; i++) {
         TLTrain *train = [trains objectAtIndex:i];
+        if (train.estimated == nil && train.posted != nil) {
+            continue;
+        }
         NSColor *backgroundColor;
         if ([preferredTrain isEqualToString:train.number]) {
             NSString *osxMode = [[NSUserDefaults standardUserDefaults] stringForKey:@"AppleInterfaceStyle"];
