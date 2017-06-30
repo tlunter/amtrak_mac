@@ -27,7 +27,7 @@
 - (void)loadAmtrakPage {
     UNIHTTPBinaryResponse *response = [[UNIRest get:^(UNISimpleRequest *request) {
         [request setUrl:
-         [NSString stringWithFormat:@"http://amtrak.tlunter.com/%@/%@.json", self.from, self.to]];
+         [NSString stringWithFormat:@"http://amtrak.tlunter.com/api/%@/%@.json", self.from, self.to]];
     }] asBinary];
     [self parseTrainData:[response rawBody]];
 }
@@ -49,7 +49,7 @@
     
     for (NSDictionary *rawTrain in trains) {
         TLTrain *train = [[TLTrain alloc] init];
-        [train setNumber:[rawTrain valueForKeyPath:@"number"]];
+        [train setNumber:[[rawTrain valueForKeyPath:@"number"] stringValue]];
         [train setScheduled:[rawTrain valueForKeyPath:@"departure.scheduled_time"]];
         [train setEstimated:[rawTrain valueForKeyPath:@"departure.estimated_time"]];
         [train setPosted:[rawTrain valueForKeyPath:@"departure.posted_time"]];

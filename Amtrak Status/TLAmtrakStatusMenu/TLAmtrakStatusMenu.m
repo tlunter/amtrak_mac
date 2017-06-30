@@ -70,7 +70,7 @@
     if ([preferredTrain length] > 0) {
         TLTrain *train = nil;
         for (TLTrain *t in trains) {
-            if([t.number isEqualToString:preferredTrain]) {
+            if([t.number isKindOfClass:[NSString class]] && [t.number isEqualToString:preferredTrain]) {
                 train = t;
                 break;
             }

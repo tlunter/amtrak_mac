@@ -15,13 +15,13 @@
 - (BOOL)isEqualToTrain:(TLTrain *)other {
     if (!other) return NO;
 
-    BOOL haveEqualNumbers = (!self.number && !other.number) || [self.number isEqualToString:other.number];
-    BOOL haveEqualScheduled = (!self.scheduled && !other.scheduled) || [self.scheduled isEqualToString:other.scheduled];
-    BOOL haveEqualEstimated = (!self.estimated && !other.estimated) || [self.estimated isEqualToString:other.estimated];
-    BOOL haveEqualPosteded = (!self.posted && !other.posted) || [self.posted isEqualToString:other.posted];
+    BOOL haveEqualNumbers = (!self.number && !other.number) || (self.number != (id)[NSNull null] && [self.number isEqualToString:other.number]);
+    BOOL haveEqualScheduled = (!self.scheduled && !other.scheduled) || (self.scheduled != (id)[NSNull null] && [self.scheduled isEqualToString:other.scheduled]);
+    BOOL haveEqualEstimated = (!self.estimated && !other.estimated) || (self.estimated != (id)[NSNull null] && [self.estimated isEqualToString:other.estimated]);
+    BOOL haveEqualPosted = (!self.posted && !other.posted) || (self.posted != (id)[NSNull null] && [self.posted isEqualToString:other.posted]);
 
 
-    return haveEqualNumbers && haveEqualScheduled && haveEqualEstimated && haveEqualPosteded;
+    return haveEqualNumbers && haveEqualScheduled && haveEqualEstimated && haveEqualPosted;
 }
 
 - (BOOL)isEqual:(id)object {
