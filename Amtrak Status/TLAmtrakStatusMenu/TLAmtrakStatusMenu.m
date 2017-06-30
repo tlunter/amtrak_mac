@@ -70,12 +70,12 @@
     if ([preferredTrain length] > 0) {
         TLTrain *train = nil;
         for (TLTrain *t in trains) {
-            if([[t number] isEqualToString:preferredTrain]) {
+            if([t.number isKindOfClass:[NSString class]] && [t.number isEqualToString:preferredTrain]) {
                 train = t;
                 break;
             }
         }
-        if (train) {
+        if (train != (id)[NSNull null] && train.scheduled != (id)[NSNull null] && train.estimated != (id)[NSNull null]) {
             NSDate *scheduled = [[TLAmtrakStatusMenu lateTimeFormatter] dateFromString:[train scheduled]];
             NSDate *estimated = [[TLAmtrakStatusMenu lateTimeFormatter] dateFromString:[train estimated]];
             NSTimeInterval timeDiff = [estimated timeIntervalSinceDate:scheduled];

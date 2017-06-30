@@ -40,16 +40,22 @@
 
 - (void)updateView {
     NSLog(@"Redrawing");
-    NSInteger height = [TLAmtrakStatusView rowHeight] * ([trains count] + 1);
+
+    NSArray *remainingTrains = self.remainingTrains;
+
+    NSInteger height = [TLAmtrakStatusView rowHeight] * ([remainingTrains count] + 1);
     [self setFrame:NSMakeRect(0, 0, 240, height)];
 
     NSView *view = [[NSView alloc] initWithFrame:[self frame]];
 
-    NSInteger max = [trains count];
+    NSInteger max = [remainingTrains count];
     NSString *preferredTrain = [[NSUserDefaults standardUserDefaults] objectForKey:@"preferredTrain"];
 
     for (int i = 0; i < max; i++) {
-        TLTrain *train = [trains objectAtIndex:i];
+        TLTrain *train = [remainingTrains objectAtIndex:i];
+        if (train.estimated == (id)[NSNull null] && train.posted != (id)[NSNull null]) {
+            continue;
+        }
         NSColor *backgroundColor;
         if ([preferredTrain isEqualToString:train.number]) {
             NSString *osxMode = [[NSUserDefaults standardUserDefaults] stringForKey:@"AppleInterfaceStyle"];
@@ -85,6 +91,18 @@
     [view addSubview:headerView];
     [self.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     [self addSubview:view];
+}
+
+- (NSArray*)remainingTrains {
+    NSMutableArray *remainingTrains = [NSMutableArray array];
+    for (int i = 0; i < [trains count]; i++) {
+        TLTrain *train = [trains objectAtIndex:i];
+        if (train.estimated == (id)[NSNull null] && train.posted != (id)[NSNull null]) {
+            continue;
+        }
+        [remainingTrains addObject:train];
+    }
+    return remainingTrains;
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
