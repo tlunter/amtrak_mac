@@ -40,8 +40,8 @@
 {
     [super drawRect:dirtyRect];
 
-    [backgroundColor setFill];
-    NSRectFill(dirtyRect);
+    [self setWantsLayer:YES];
+    [self.layer setBackgroundColor:[backgroundColor CGColor]];
 }
 
 @end
